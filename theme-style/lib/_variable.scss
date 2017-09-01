@@ -1,0 +1,52 @@
+// Font
+$font: -apple-system, BlinkMacSystemFont, ".SFNSDisplay-Regular",
+       "Helvetica Neue",
+       "Segoe UI",
+       "Hiragino Sans", "ヒラギノ角ゴシック",
+       "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3",
+       Meiryo, "メイリオ",
+       "MS PGothic", "ＭＳ Ｐゴシック",
+       sans-serif;
+$font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+$font-weight: 300;
+
+// Color
+$white: #fff;
+$black: #000;
+$gray: #ccc;
+$dark-gray: #767676; // WCAG 2.0の達成基準「最低限のコントラスト（レベルAA）」を満たすもっとも明るいグレー
+$white-smoke: #f5f5f5;
+$blue: #0000ff;
+$steel-blue: #4682B4;
+$azure: #7fffd4;
+$yellow: #ffff00; // use search result
+
+// Theme Color
+$theme-color: $blue;
+
+// Social Service Color
+$hatena-bookmark-color: #008fde;
+$facebook-color: #3b5998;
+$twitter-color: #1da1f2;
+
+// Size
+$root-size: 87.5%; // 14px
+$root-desktop-size: 100%; // 16px
+$size: .5rem; // 8px
+$content-size: $size * 120;
+
+// Ratio
+$ratio-gold: 1.618;
+$ratio-gold-long-side: .618;
+$ratio-gold-short-side: 1 - $ratio-gold-long-side;
+$ratio-gold-neg: 1 + $ratio-gold-short-side;
+
+// Radius
+$r: 3px;
+
+// Opacity
+$opacity: .75;
+
+// Animation
+$delay: .3s;
+$delay-long: .5s;

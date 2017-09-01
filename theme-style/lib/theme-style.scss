@@ -1,0 +1,1307 @@
+@charset "utf-8";
+
+/**
+ * Name: Hatena-Blog-Theme-Boilerplate
+ * Author: Takayosi Amagi <http://github.com/fand>
+ * Description: A boilerplate for Hatena Blog theme.
+ * Version: 0.0.0
+ * License: MIT
+ */
+
+@import "https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css";
+@import "_variable";
+@import "_mixin";
+
+/* ====================
+* 1. Base
+* 2. Layout
+* 3. Module
+* 4. Page
+* 5. Animation
+* 6. Option
+==================== */
+
+/********************
+* Base
+*********************/
+html {
+  font-size: $root-size;
+  @include break {
+    font-size: $root-desktop-size;
+  }
+}
+
+body {
+  margin: 0;
+  background: $white;
+  font-family: $font;
+  font-weight: $font-weight;
+  line-height: $ratio-gold;
+  color: $black;
+}
+
+a {
+  color: $theme-color;
+  text-decoration: none;
+  &:active,
+  &:hover {
+    outline: 0;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+  &:visited {
+    color: $steel-blue;
+  }
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+dfn {
+  font-style: italic;
+}
+
+small {
+  font-size: $size * 1.5;
+}
+
+sub,
+sup {
+  position: relative;
+  font-size: $size * 1.5;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -$size;
+}
+
+sub {
+  bottom: $size / 2;
+}
+
+mark {
+  background: $yellow;
+  color: $black;
+}
+
+h1 {
+  margin-top: $size * 6;
+  margin-bottom: $size * 2;
+  font-size: $size * 3;
+  line-height: $ratio-gold-neg;
+}
+h2 {
+  margin-top: $size * 4;
+  margin-bottom: $size * 2;
+  font-size: $size * 2.5;
+  line-height: $ratio-gold-neg;
+}
+h3 {
+  margin-top: $size * 4;
+  margin-bottom: $size * 2;
+  font-size: $size * 2;
+}
+h4,
+h5,
+h6 {
+  margin-top: $size * 4;
+  margin-bottom: $size * 2;
+  font-size: $size * 2;
+  font-weight: $font-weight;
+}
+
+img {
+  border: 0;
+}
+
+figure {
+  margin: ($size * 2) ($size * 4);
+}
+
+hr {
+  margin-top: $size * 2;
+  margin-bottom: $size * 2;
+  border-top: 1px solid $gray;
+  border-bottom: none;
+}
+
+
+pre {
+  overflow: auto;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: $font-mono;
+  font-size: inherit;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+input {
+  line-height: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+fieldset {
+  margin: 0;
+  padding: $size * 2;
+  border: 1px solid $gray;
+}
+
+legend {
+  padding: 0;
+  border: 0;
+}
+
+textarea {
+  overflow: auto;
+}
+
+optgroup {
+  font-weight: bold;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+::selection {
+  background: $azure;
+}
+
+::-moz-selection {
+  background: $azure;
+}
+
+/********************
+* Layout
+*********************/
+#globalheader-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $theme-color;
+  color: $white;
+  @include break {
+    position: fixed;
+  }
+}
+
+#container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: $size * 2;
+}
+
+// Header
+#blog-title {
+  height: $content-size * $ratio-gold-short-side;
+  background-color: $theme-color;
+  color: $white;
+}
+
+// Breadcrumb (Cateogry Page)
+#top-box {
+  padding: $size;
+  background-color: $white-smoke;
+  font-size: $size * 2;
+}
+
+// Content
+#content {
+  margin: 0 auto;
+  margin-top: $size * 4;
+  max-width: $content-size;
+  @include clear;
+  @include break {
+    margin-top: $size * 8;
+    padding: 0 ($size * 2);
+  }
+}
+
+// Content/Main
+#wrapper {
+  padding: 0 ($size * 2); // モバイルのとき、メインコンテンツの左右に余白をとる
+  box-sizing: border-box;
+  @include break {
+    float: left;
+    padding: 0;
+    max-width: $size * 80; // 40 characters on line
+    width: 100%;
+  }
+}
+
+#box1 {
+  padding: 0 ($size * 2); // モバイルのとき、メインコンテンツの左右に余白をとる
+}
+
+// Contenet/Sub
+#box2 { // モバイルのときは、#box2-inner で左右の余白をとる
+  font-size: $size * 2;
+  @include break {
+    float: right;
+    max-width: $size * 32;
+    width: 100%;
+  }
+}
+
+// Footer
+#footer {
+  margin-top: $size * 2;
+  margin-bottom: $size * 2;
+  padding: 0 ($size * 2);
+  @include break {
+    margin-top: $size * 12;
+  }
+}
+
+/********************
+* Module
+*********************/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  a,
+  a:hover,
+  a:visited {
+    color: $black;
+    text-decoration: none;
+  }
+}
+
+a.keyword {
+  border-bottom: 1px dotted $gray;
+  color: $black;
+}
+
+.date,
+.categories {
+  a {
+    font-size: $size * 2;
+  }
+}
+
+.date {
+  a {
+    color: $black;
+  }
+}
+
+.categories {
+  a {
+    display: inline-block;
+    margin-right: $size;
+    color: $dark-gray;
+  }
+}
+
+.bookmark-widget-counter {
+  display: none; // TODO: CHECK
+}
+
+// Blog Title (Hero)
+#blog-title-inner {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  height: 100%;
+}
+
+#blog-title-content {
+  text-align: center;
+}
+
+#title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: $size * 8;
+  line-height: $ratio-gold-neg;
+  a {
+    color: $white;
+  }
+}
+
+#blog-description {
+  margin-top: $size / 2;
+  font-size: $size * 2;
+  font-weight: $font-weight;
+}
+
+// Breadcrumb
+#top-box {
+  .breadcrumb {
+    margin: 0 auto;
+    max-width: $content-size;
+    font-size: $size * 1.5;
+  }
+}
+
+// Entry
+.entry {
+  position: relative;
+  margin-bottom: $size * 12;
+}
+
+.entry-header {
+  position: relative;
+  margin-bottom: $size * 3;
+  border-bottom: none;
+  .entry-date {
+    font-weight: bold;
+  }
+  .entry-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: $size * 4;
+    line-height: $ratio-gold-neg;
+  }
+  .entry-categories {
+    margin-top: $size / 2;
+  }
+  .entry-header-menu {
+    position: absolute;
+    top: $size * 4;
+    left: -($size * 2);
+    @include break {
+      position: absolute;
+      top: $size * 4;
+      left: -($size * 8);
+    }
+    a {
+      display: inline-block;
+      padding: ($size / 2) $size;
+      color: $black;
+      background-color: $white;
+      border: 1px solid $black;
+      border-radius: $r;
+      font-size: $size * 1.5;
+      text-decoration: none;
+      cursor: pointer;
+      &:hover {
+        border-color: $gray;
+        color: $gray;
+      }
+    }
+  }
+}
+
+.entry-content {
+  p {
+    margin-top: $size * 2;
+    margin-bottom: $size * 2;
+  }
+  a.keyword {
+    border-bottom: none;
+  }
+  img {
+    max-width: 100%;
+  }
+  .hatena-fotolife {
+    display: block;
+    margin-bottom: $size * 2;
+    @include break {
+      display: inline;
+      margin: 0;
+    }
+  }
+  .hatena-image-left,
+  .hatena-image-right {
+    float: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .hatena-image-left {
+    @include break {
+      float: left;
+      margin-right: $size * 2;
+    }
+  }
+  .hatena-image-right {
+    @include break {
+      display: inline-block;
+      float: right;
+      margin-left: $size * 2;
+    }
+  }
+  ul,
+  ol {
+    margin-top: $size * 2;
+    margin-bottom: $size * 2;
+    padding-left: $size * 4;
+    ul,
+    ol {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+  dl {
+    margin-top: $size * 2;
+    margin-bottom: $size * 2;
+    margin-left: $size * 4;
+    dt {
+      font-weight: bold;
+      font-style: italic;
+    }
+    dd {
+      margin-left: $size * 2;
+    }
+  }
+  table {
+    margin-top: $size * 2;
+    margin-bottom: $size * 2;
+    th,
+    td {
+      padding: $size;
+      border: 1px solid $gray;
+    }
+    th {
+      background-color: $white-smoke;
+    }
+    img {
+      max-width: none;
+    }
+  }
+  blockquote {
+    margin: $size * 2;
+    margin-right: 0;
+    padding-left: $size * 2;
+    border-left: 4px solid $gray;
+    p {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    cite {
+      display: inline-block;
+      margin-top: $size * 2;
+      font-size: $size * 1.5;
+      &:before {
+        content: "";
+        display: inline-block;
+        width: $size * 2;
+        height: 1px;
+        background-color: $black;
+        vertical-align: middle;
+      }
+      a {
+        color: $black;
+      }
+    }
+  }
+  code,
+  pre {
+    border: none;
+    border-radius: $r;
+    font-family: $font-mono;
+  }
+  pre {
+    background-color: $black; // CSS シンタックスのときなど、背景が白めだと文字が見えない
+    font-size: $size * 1.75; // コード量をいい感じで見せつつ、小さすぎて見えなくならないように、微妙な値で設定
+    color: $white;
+  }
+  code {
+    display: inline-block;
+    padding: 0;
+    margin-left: $size / 2;
+    margin-right: $size / 2;
+    background-color: transparent;
+    font-size: $size * 2;
+  }
+  pre {
+    margin-top: $size * 2;
+    margin-bottom: $size * 2;
+    padding: $size * 2;
+  }
+  .hatena-asin-detail {
+    margin-top: $size * 2;
+    margin-bottom: $size * 2;
+    padding: $size * 1;
+    border: 1px solid $gray;
+    border-radius: $r;
+    font-size: $size * 2;
+    .hatena-asin-detail-image {
+      margin-right: $size * 2;
+    }
+    .hatena-asin-detail-title {
+      margin-bottom: $size;
+    }
+    ul {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: $size * 1.5;
+    }
+  }
+}
+
+.entry-footer {
+  margin-top: $size * 4;
+  .entry-footer-section {
+    margin-top: $size * 3;
+    margin-bottom: $size * 3;
+    font-size: $size * 1.5;
+    color: $black;
+    .entry-footer-time {
+      a {
+        color: $black;
+      }
+    }
+  }
+  .hatena-star-container {
+    margin-top: $size * 1.5;
+    margin-bottom: $size * 1.5;
+  }
+  .social-buttons {
+    margin-top: $size * 1.5;
+    margin-bottom: $size * 1.5;
+  }
+  .comment-box {
+    ul {
+      margin: 0;
+      margin-bottom: $size * 2;
+      padding-left: 0;
+      font-size: $size * 2;
+      list-style: none;
+      li {
+        position: relative;
+        margin-bottom: $size;
+        padding: $size;
+        padding-left: $size * 9.5; // 左のアイコンサイズ 8rem + 余白 1.5rem
+        border-radius: $r;
+        background-color: $white-smoke;
+      }
+      .comment-user-name {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-weight: bold;
+      }
+      .hatena-id-icon {
+        position: absolute;
+        top: $size * 1.5;
+        left: $size * 1.5; // left padding 1.5
+        width: $size * 6 !important; // Override boilerplate
+        height: $size * 6 !important;
+        border-radius: $r;
+      }
+      .comment-content {
+        margin-bottom: $size * 2;
+        font-size: $size * 2;
+        word-wrap: break-word;
+        p {
+          margin-top: 0;
+        }
+      }
+      .comment-metadata {
+        font-size: $size * 1.5;
+        color: $dark-gray;
+      }
+    }
+  }
+  .leave-comment-title {
+    display: inline-block;
+    padding: ($size / 2) $size;
+    border-radius: $r;
+    background-color: $theme-color;
+    font-size: $size * 1.5;
+    font-weight: bold;
+    color: $white;
+    line-height: $ratio-gold-neg;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      opacity: $opacity;
+      transition: $delay;
+    }
+  }
+  .hatena-module-related-entries {
+    .hatena-module-title {
+      margin-top: $size * 6;
+      margin-bottom: $size * 2;
+      font-size: $size * 3;
+      line-height: $ratio-gold-neg;
+    }
+    .hatena-urllist {
+      padding-left: 0;
+      li {
+        margin-top: $size * 2;
+        margin-bottom: $size * 2;
+      }
+      .urllist-title-link {
+        font-size: $size * 2;
+        font-weight: bold;
+        color: $black;
+      }
+    }
+    .urllist-with-thumbnails {
+      li {
+        .urllist-image {
+          margin-right: $size * 2;
+          width: $size * 12;
+          height: $size * 12;
+          border-radius: $r;
+        }
+      }
+    }
+  }
+  .google-afc-image,
+  .google-afc-text {
+    margin-top: $size * 2;
+    margin-bottom: $size * 2;
+  }
+}
+
+// Pager
+.pager {
+  position: relative;
+  margin-top: $size * 12;
+  margin-bottom: $size * 12;
+  @include clear;
+  .pager-prev,
+  .pager-next {
+    display: block;
+    margin-top: $size;
+    margin-bottom: $size;
+    padding: $size;
+    border-radius: $r;
+    background-color: $white-smoke;
+    @include break {
+      max-width: 45%;
+      background-color: transparent;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      display: inline-block;
+      width: calc(100% - #{$size} * 4);
+      font-weight: bold;
+      color: $theme-color;
+      @include break {
+        width: auto;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+      .pager-arrow {
+        display: none;
+      }
+    }
+  }
+  .pager-prev {
+    @include break {
+      float: left;
+    }
+    &:before {
+      content: "";
+      display: inline-block;
+      width: $size * 2.5;
+      height: $size * 2.5;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><polygon fill='%230000ff' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8' transform='matrix(-1 0 0 1 15.886 0)'/></svg>"); // fill='#...' change to fill='%23...'
+      background-repeat: no-repeat;
+      background-size: contain;
+      vertical-align: -4px;
+      @include break {
+        width: $size * 2;
+        height: $size * 2;
+        vertical-align: -2px;
+      }
+    }
+    &:hover {
+      &:before {
+        animation-duration: $delay-long;
+        animation-name: animation-floating-left;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+    }
+  }
+  .pager-next {
+    text-align: right;
+    @include break {
+      float: right;
+    }
+    &:after {
+      content: "";
+      display: inline-block;
+      width: $size * 2.5;
+      height: $size * 2.5;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><polygon fill='%230000ff' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8'/></svg>"); // fill='#...' change to fill='%23...'
+      background-repeat: no-repeat;
+      background-size: contain;
+      vertical-align: -4px;
+      @include break {
+        width: $size * 2;
+        height: $size * 2;
+        vertical-align: -2px;
+      }
+    }
+    &:hover {
+      &:after {
+        animation-duration: $delay-long;
+        animation-name: animation-floating-right;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+    }
+  }
+}
+
+// Footer
+#footer-inner {
+  font-size: $size * 1.5;
+  color: $black;
+  text-align: center;
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  a {
+    color: $black;
+  }
+  address {
+    img {
+      vertical-align: middle;
+    }
+  }
+}
+
+// Hatena Module
+#box2-inner { // モバイルのときなど表示が違うので、#box1 に影響しないようにカスケーディングする
+  .hatena-module {
+    padding: $size * 2;
+    box-sizing: border-box;
+    margin-bottom: 0;
+    @include break {
+      margin-bottom: $size * 4;
+      padding: 0;
+    }
+    &:nth-child(odd) {
+      background-color: $white-smoke;
+      @include break {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.hatena-module-title {
+  margin-top: 0;
+  margin-bottom: $size;
+  font-size: $size * 2;
+  font-weight: bold;
+  a {
+    color: $black;
+    text-decoration: none;
+  }
+}
+
+.hatena-urllist {
+  padding-left: $size * 2.5;
+  list-style: disc;
+  li {
+  }
+  .urllist-date-link {
+    font-size: $size * 1.5;
+    a {
+      color: $black;
+    }
+  }
+  .urllist-entry-body {
+    font-size: $size * 2;
+  }
+}
+
+.hatena-module-profile {
+  .id {
+    display: block;
+    margin-bottom: $size;
+    font-size: $size * 2;
+    font-weight: bold;
+  }
+  .profile-icon {
+    float: left;
+    margin-right: $size * 1.5;
+    margin-bottom: $size * 1.5;
+    border-radius: $r;
+  }
+  .profile-description {
+    font-size: $size * 1.5;
+    p {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+  .hatena-follow-button-box {
+    margin-top: $size * 1.5;
+    margin-bottom: 0;
+  }
+}
+
+.hatena-module-circles {
+  .hatena-urllist {
+    padding-left: 0;
+    li {
+      margin-bottom: $size;
+    }
+  }
+  .circle-urllist {
+    .circle-image {
+      margin-right: $size;
+      width: $size * 6;
+      height: $size * 6;
+      border-radius: $r;
+    }
+  }
+}
+
+.hatena-module-authors-list {
+  .hatena-urllist {
+    padding-left: 0;
+    li {
+      margin-bottom: $size;
+    }
+    .authors-user-icon {
+      margin-right: $size;
+      width: $size * 6;
+      height: $size * 6;
+      border-radius: $r;
+    }
+  }
+}
+
+.hatena-module-recent-comments {
+  .hatena-urllist {
+    .user-id {
+      display: block;
+      .hatena-id-icon {
+        width: $size * 2;
+        height: $size * 2;
+        border-radius: $r;
+      }
+    }
+  }
+}
+
+.hatena-module-search-box {
+  .search-form {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .search-module-input {
+    padding: $size;
+    padding-right: 12%; // .search-module-input - .search-module-button + 余白
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid $gray;
+    border-radius: $r;
+    background: none;
+    color: $black;
+    outline: none;
+    &:focus {
+      border-color: $theme-color;
+      transition: $delay;
+      & + .search-module-button { // 隣接する虫眼鏡アイコンもアクティブな見た目にする
+        opacity: 1;
+      }
+    }
+  }
+  .search-module-button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: $size;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: $size * 2;
+    height: $size * 2;
+    border: none;
+    background-color: transparent;
+    background-image: url(http://blog.hatena.ne.jp/images/theme/search.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+    outline: none;
+    text-indent: -9999px;
+    opacity: .5;
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+/********************
+* Page
+*********************/
+// Archive
+.archive-heading {
+  margin-top: 0;
+  margin-bottom: $size * 2;
+  font-size: $size * 4;
+  line-height: $ratio-gold-neg;
+}
+
+.ad + .archive-heading {
+  margin-top: $size * 4;
+}
+
+.page-archive {
+  .archive-entry {
+    margin-top: $size * 4;
+    margin-bottom: $size * 4;
+    .date {
+      a {
+        font-size: $size * 1.5;
+        color: $black;
+      }
+    }
+    .entry-title {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: $size * 3;
+      line-height: $ratio-gold-neg;
+    }
+    .categories {
+      margin-bottom: $size;
+    }
+    .entry-thumb {
+      margin-right: $size * 2;
+      width: $size * 12;
+      height: $size * 12;
+      border-radius: $r;
+    }
+    .entry-description {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: $size * 2;
+    }
+    .social-buttons,
+    .entry-footer-html {
+      display: block;
+      margin-top: $size;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Category (Archive/Cateroy)
+.archive-header-category {
+  margin-top: 0;
+  margin-bottom: $size * 4;
+  .archive-heading {
+    margin-bottom: $size * 2;
+    font-size: $size * 4;
+  }
+}
+
+.ad + .archive-header-category {
+  margin-top: $size * 4;
+}
+
+// Search
+.search-result {
+  margin-top: 0;
+  margin-bottom: $size * 4;
+  .archive-heading {
+    margin-bottom: $size;
+    font-size: $size * 4;
+  }
+}
+
+.ad + .search-result {
+  margin-top: $size * 4;
+}
+
+.page-archive {
+  span.highlight {
+    background-color: $yellow;
+    border: none;
+    border-radius: $r;
+    color: $black;
+    margin: 0;
+    padding: 0 ($size / 2);
+    font-weight: inherit;
+  }
+}
+
+// About
+.page-about {
+  dl {
+    margin: 0;
+    dt {
+      margin-bottom: 0;
+      border-bottom: none;
+      font-size: $size * 2;
+      font-weight: bold;
+      font-style: normal;
+    }
+    dd {
+      margin-left: 0;
+      margin-bottom: $size * 4;
+    }
+  }
+}
+/********************
+* Animation
+*********************/
+@keyframes animation-floating-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-($size / 2));
+  }
+}
+
+@keyframes animation-floating-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX($size / 2);
+  }
+}
+
+@keyframes animation-swing {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(15deg);
+  }
+}
+
+/********************
+* Option
+*********************/
+/* Option1: ヘッダーに背景画像を設定する */
+/* ヘッダーにタイトル画像をアップロードし、表示設定を「画像とテキストを表示」にしている場合に有効なスタイルです */
+#globalheader-container {
+  background-color: $white;
+  color: $black;
+}
+
+#container {
+  padding-top: 37px;
+  .browsing-with-smartphone #globalheader-container + & {
+    padding-top: 44px;
+  }
+}
+
+.globalheader-off #container {
+  padding-top: 0;
+}
+
+.header-image-enable {
+  #blog-title {
+    #title {
+      a {
+        text-shadow: none !important;
+      }
+    }
+  }
+  #blog-title-inner {
+    height: 100% !important;
+    background-size: cover;
+    background-position: center center !important;
+  }
+}
+
+/* Option2: 記事上下にオリジナルソーシャルボタンを置く
+ * はてなブックマーク、Twitter, Facebook の 3つに対応しています */
+/* HTML（はてなブックマークと Facebook のカウントあり、テキストラベルなし）
+  <!-- シェアボタン -->
+  <div class="custom-share-buttons share-buttons">
+    <!-- はてなブックマーク -->
+    <a href="http://b.hatena.ne.jp/entry/{URLEncodedPermalink}" class="custom-share-buttons-link hatena-bookmark-button" target="_blank" data-hatena-bookmark-title="{Title}" data-hatena-bookmark-layout="simple" title="このエントリーをはてなブックマークに追加">
+      <i class="custom-share-buttons-link-icon blogicon-bookmark lg"></i>
+      <span class="custom-share-buttons-link-text hatena-bookmark-count"></span>
+    </a>
+    <!-- Facebook -->
+    <a href="http://www.facebook.com/sharer.php?u={URLEncodedPermalink}" class="custom-share-buttons-link facebook-button" onclick="window.open(this.href,'FaceBookWindow','width=650,height=450,menubar=no,toolbar=no,scrollbars=yes');return false;" title="Facebookでシェア">
+      <i class="custom-share-buttons-link-icon blogicon-facebook lg"></i>
+      <span class="custom-share-buttons-link-text facebook-count"></span>
+    </a>
+    <!-- Twitter -->
+    <a href="http://twitter.com/intent/tweet?text={Title} {URLEncodedPermalink}" class="custom-share-buttons-link twitter-button" onclick="window.open(this.href, 'TwitterWindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;">
+      <i class="custom-share-buttons-link-icon blogicon-twitter lg"></i>
+    </a>
+  </div>
+  
+  <!-- jQuery を使って、シェア数を取得 -->
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>
+  <script>
+  // はてなブックマークのシェア数
+  function getHatenaBookmarkCount(entryUrl, selcter) {
+    entryUrl = 'http://api.b.st-hatena.com/entry.count?url=' + encodeURIComponent(entryUrl)
+    $.ajax({
+      url:entryUrl,
+      dataType:'jsonp',
+    }).then(
+      function(result){ $(selcter).text(result || 0); },
+      function(){ $(selcter).text('0'); }
+    );
+  }
+  // Facebookのシェア数
+  function getFacebookCount(entryUrl, selcter) {
+    entryUrl = 'https://graph.facebook.com/' + encodeURIComponent(entryUrl)
+    $.ajax({
+      url:entryUrl,
+      dataType:'jsonp'
+    }).then(
+      function(result){
+          if(result.share && result.share.share_count) {
+              $(selcter).text(result.share.share_count);
+          } else {
+              $(selcter).text('0');
+          }
+      },
+      function(){ $(selcter).text('0'); }
+    );
+  }
+  $(function(){
+    getHatenaBookmarkCount('{Permalink}', '.hatena-bookmark-count');
+    getFacebookCount('{Permalink}', '.facebook-count');
+  });
+  </script>
+*/
+/* HTML（はてなブックマークと Facebook のカウントなし、テキストラベルあり）
+  <!-- シェアボタン -->
+  <div class="custom-share-buttons share-buttons">
+    <!-- はてなブックマーク -->
+    <a href="http://b.hatena.ne.jp/entry/{URLEncodedPermalink}" class="custom-share-buttons-link hatena-bookmark-button" target="_blank" data-hatena-bookmark-title="{Title}" data-hatena-bookmark-layout="simple" title="このエントリーをはてなブックマークに追加">
+      <i class="custom-share-buttons-link-icon blogicon-bookmark lg"></i>
+      <span class="custom-share-buttons-link-text">Bookmark!</span>
+    </a>
+    <!-- Facebook -->
+    <a href="http://www.facebook.com/sharer.php?u={URLEncodedPermalink}" class="custom-share-buttons-link facebook-button" onclick="window.open(this.href,'FaceBookWindow','width=650,height=450,menubar=no,toolbar=no,scrollbars=yes');return false;" title="Facebookでシェア">
+      <i class="custom-share-buttons-link-icon blogicon-facebook lg"></i>
+      <span class="custom-share-buttons-link-text">Facebook</span>
+    </a>
+    <!-- Twitter -->
+    <a href="http://twitter.com/intent/tweet?text={Title} {URLEncodedPermalink}" class="custom-share-buttons-link twitter-button" onclick="window.open(this.href, 'TwitterWindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;">
+      <i class="custom-share-buttons-link-icon blogicon-twitter lg"></i>
+      <span class="custom-share-buttons-link-text">Twitter</span>
+    </a>
+  </div>
+*/
+.custom-share-buttons {
+  margin-top: $size * 2;
+  margin-bottom: $size * 2;
+  .custom-share-buttons-link {
+    display: inline-block;
+    &:hover {
+      text-decoration: none;
+      opacity: $opacity;
+      [class*=blogicon-].lg {
+        animation-duration: $delay;
+        animation-name: animation-swing;
+        animation-iteration-count: 2;
+        animation-direction: alternate;
+      }
+    }
+    & + .custom-share-buttons-link {
+      margin-left: $size * 2;
+    }
+    &.hatena-bookmark-button {
+      color: $hatena-bookmark-color;
+    }
+    &.facebook-button {
+      color: $facebook-color;
+    }
+    &.twitter-button {
+      color: $twitter-color;
+    }
+  }
+  [class*=blogicon-].lg {
+    font-size: $size * 3;
+    line-height: 1;
+    vertical-align: -15%;
+    &.blogicon-bookmark {
+      font-size: 1.6rem;
+      vertical-align: -12%;
+    }
+    &.blogicon-facebook,
+    &.blogicon-twitter {
+      font-size: 1.4rem; // はてなブックマークアイコンが小さいので、それに合わせて他のアイコンを小さくする
+    }
+  }
+  .custom-share-buttons-link-text {
+    font-weight: bold;
+  }
+}
