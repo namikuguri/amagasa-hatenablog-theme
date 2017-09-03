@@ -19,6 +19,7 @@
 * 4. Page
 * 5. Animation
 * 6. Option
+* 7. Customize
 ==================== */
 
 /********************
@@ -1134,132 +1135,10 @@ a.keyword {
   }
 }
 
-@keyframes animation-swing {
-  0% {
-    transform: rotate(0);
-  }
-  50% {
-    transform: rotate(-15deg);
-  }
-  100% {
-    transform: rotate(15deg);
-  }
-}
-
 /********************
 * Option
 *********************/
-/* Option1: ヘッダーに背景画像を設定する */
-/* ヘッダーにタイトル画像をアップロードし、表示設定を「画像とテキストを表示」にしている場合に有効なスタイルです */
-#globalheader-container {
-  background-color: $white;
-  color: $black;
-}
-
-#container {
-  padding-top: 37px;
-  .browsing-with-smartphone #globalheader-container + & {
-    padding-top: 44px;
-  }
-}
-
-.globalheader-off #container {
-  padding-top: 0;
-}
-
-.header-image-enable {
-  #blog-title {
-    #title {
-      a {
-        text-shadow: none !important;
-      }
-    }
-  }
-  #blog-title-inner {
-    height: 100% !important;
-    background-size: cover;
-    background-position: center center !important;
-  }
-}
-
-/* Option2: 記事上下にオリジナルソーシャルボタンを置く
- * はてなブックマーク、Twitter, Facebook の 3つに対応しています */
-/* HTML（はてなブックマークと Facebook のカウントあり、テキストラベルなし）
-  <!-- シェアボタン -->
-  <div class="custom-share-buttons share-buttons">
-    <!-- はてなブックマーク -->
-    <a href="http://b.hatena.ne.jp/entry/{URLEncodedPermalink}" class="custom-share-buttons-link hatena-bookmark-button" target="_blank" data-hatena-bookmark-title="{Title}" data-hatena-bookmark-layout="simple" title="このエントリーをはてなブックマークに追加">
-      <i class="custom-share-buttons-link-icon blogicon-bookmark lg"></i>
-      <span class="custom-share-buttons-link-text hatena-bookmark-count"></span>
-    </a>
-    <!-- Facebook -->
-    <a href="http://www.facebook.com/sharer.php?u={URLEncodedPermalink}" class="custom-share-buttons-link facebook-button" onclick="window.open(this.href,'FaceBookWindow','width=650,height=450,menubar=no,toolbar=no,scrollbars=yes');return false;" title="Facebookでシェア">
-      <i class="custom-share-buttons-link-icon blogicon-facebook lg"></i>
-      <span class="custom-share-buttons-link-text facebook-count"></span>
-    </a>
-    <!-- Twitter -->
-    <a href="http://twitter.com/intent/tweet?text={Title} {URLEncodedPermalink}" class="custom-share-buttons-link twitter-button" onclick="window.open(this.href, 'TwitterWindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;">
-      <i class="custom-share-buttons-link-icon blogicon-twitter lg"></i>
-    </a>
-  </div>
-  
-  <!-- jQuery を使って、シェア数を取得 -->
-  <script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>
-  <script>
-  // はてなブックマークのシェア数
-  function getHatenaBookmarkCount(entryUrl, selcter) {
-    entryUrl = 'http://api.b.st-hatena.com/entry.count?url=' + encodeURIComponent(entryUrl)
-    $.ajax({
-      url:entryUrl,
-      dataType:'jsonp',
-    }).then(
-      function(result){ $(selcter).text(result || 0); },
-      function(){ $(selcter).text('0'); }
-    );
-  }
-  // Facebookのシェア数
-  function getFacebookCount(entryUrl, selcter) {
-    entryUrl = 'https://graph.facebook.com/' + encodeURIComponent(entryUrl)
-    $.ajax({
-      url:entryUrl,
-      dataType:'jsonp'
-    }).then(
-      function(result){
-          if(result.share && result.share.share_count) {
-              $(selcter).text(result.share.share_count);
-          } else {
-              $(selcter).text('0');
-          }
-      },
-      function(){ $(selcter).text('0'); }
-    );
-  }
-  $(function(){
-    getHatenaBookmarkCount('{Permalink}', '.hatena-bookmark-count');
-    getFacebookCount('{Permalink}', '.facebook-count');
-  });
-  </script>
-*/
-/* HTML（はてなブックマークと Facebook のカウントなし、テキストラベルあり）
-  <!-- シェアボタン -->
-  <div class="custom-share-buttons share-buttons">
-    <!-- はてなブックマーク -->
-    <a href="http://b.hatena.ne.jp/entry/{URLEncodedPermalink}" class="custom-share-buttons-link hatena-bookmark-button" target="_blank" data-hatena-bookmark-title="{Title}" data-hatena-bookmark-layout="simple" title="このエントリーをはてなブックマークに追加">
-      <i class="custom-share-buttons-link-icon blogicon-bookmark lg"></i>
-      <span class="custom-share-buttons-link-text">Bookmark!</span>
-    </a>
-    <!-- Facebook -->
-    <a href="http://www.facebook.com/sharer.php?u={URLEncodedPermalink}" class="custom-share-buttons-link facebook-button" onclick="window.open(this.href,'FaceBookWindow','width=650,height=450,menubar=no,toolbar=no,scrollbars=yes');return false;" title="Facebookでシェア">
-      <i class="custom-share-buttons-link-icon blogicon-facebook lg"></i>
-      <span class="custom-share-buttons-link-text">Facebook</span>
-    </a>
-    <!-- Twitter -->
-    <a href="http://twitter.com/intent/tweet?text={Title} {URLEncodedPermalink}" class="custom-share-buttons-link twitter-button" onclick="window.open(this.href, 'TwitterWindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;">
-      <i class="custom-share-buttons-link-icon blogicon-twitter lg"></i>
-      <span class="custom-share-buttons-link-text">Twitter</span>
-    </a>
-  </div>
-*/
+/* ソーシャルボタンを配置、カウント付きソーシャルボタンを配置 */
 .custom-share-buttons {
   margin-top: $size * 2;
   margin-bottom: $size * 2;
@@ -1305,3 +1184,50 @@ a.keyword {
     font-weight: bold;
   }
 }
+
+@keyframes animation-swing {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(15deg);
+  }
+}
+
+// /********************
+// * Customize
+// *********************/
+// /* ヘッダーに背景画像を設定 */
+// #globalheader-container {
+//   background-color: $white;
+//   color: $black;
+// }
+// 
+// #container {
+//   padding-top: 37px;
+//   .browsing-with-smartphone #globalheader-container + & {
+//     padding-top: 44px;
+//   }
+// }
+// 
+// .globalheader-off #container {
+//   padding-top: 0;
+// }
+// 
+// .header-image-enable {
+//   #blog-title {
+//     #title {
+//       a {
+//         text-shadow: none !important;
+//       }
+//     }
+//   }
+//   #blog-title-inner {
+//     height: 100% !important;
+//     background-size: cover;
+//     background-position: center center !important;
+//   }
+// }
