@@ -1,3 +1,2 @@
-# my-theme
-
-A theme for Hatena Blog.
+# Amagasa HatenaBlog Theme
+Amagasa theme for HatenaBlog.
