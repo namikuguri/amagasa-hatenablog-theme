@@ -170,6 +170,50 @@ $(function(){
             </div>
           </div>
         </div><!-- end block -->
+        <div class="block">
+          <h3 class="block__title">記事の中で画像を横幅いっぱいに表示させる</h3>
+          <div class="block__body">
+            <div class="block__sub">
+              <img src="images/customize-entry-content-image-full.png" alt="">
+            </div>
+            <div class="block__main">
+              <p>記事の中（.entry-content）で画像を表示するときに使えます。</p>
+              <ol>
+                <li>はてなブログの記事作成ページを開きます。</li>
+                <li>画像をアップロードします。</li>
+                <li>アップロードした画像を custom-image-full クラスの付いた div 要素でくくります。たとえば以下のように。
+                  <pre>
+<div class="custom-image-full">
+  [f:id:namikuguri:20170906024738p:plain]
+</div></pre>
+                </li>
+                <li>記事を保存すると、記事の中で横幅いっぱいに広がった画像が表示されます。</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- end block -->
+        <div class="block">
+          <h3 class="block__title">記事の中で画像を水平方向に中央寄せして表示させる</h3>
+          <div class="block__body">
+            <div class="block__sub">
+              <img src="images/customize-entry-content-image-centered.png" alt="">
+            </div>
+            <div class="block__main">
+              <p>記事の中（.entry-content）で画像を表示するときに使えます。</p>
+              <ol>
+                <li>はてなブログの記事作成ページを開きます。</li>
+                <li>画像をアップロードします。</li>
+                <li>アップロードした画像を custom-image-centered クラスの付いた div 要素でくくります。たとえば以下のように。
+                  <pre>
+<div class="custom-image-centered">
+  [f:id:namikuguri:20170906025205p:plain]
+</div></pre>
+                </li>
+                <li>記事を保存すると、記事の中で水平方向に中央寄せされた画像が表示されます。</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- end block -->
       </div>
     </section>
     <section class="section">
@@ -189,7 +233,7 @@ $(function(){
                 <li>「背景画像」項目を開き、その中の「画像アップロード」から画像をアップしてください。</li>
                 <li>「デザインCSS」項目を開き、以下の CSS を一番下の行に入力してください。
                   <pre>
-/* ヘッダーに背景画像を設定 */
+/*---  ヘッダーに背景画像を設定 --- */
 #globalheader-container {
   background-color: #fff;
   color: #000;
@@ -221,7 +265,224 @@ $(function(){
               </ol>
             </div>
           </div>
-        </div>
+        </div><!-- end block -->
+        <div class="block">
+          <h3 class="block__title">フォントを変更する</h3>
+          <div class="block__body">
+            <div class="block__sub">
+              <img src="images/customize-font.png" alt="">
+            </div>
+            <div class="block__main">
+              <p>初期値のゴシック体から明朝体に変更したい場合などに使ってください。</p>
+              <ol>
+                <li>はてなブログのデザイン設定を開き、カスタマイズタブを開きます。</li>
+                <li>「デザインCSS」項目を開き、以下の CSS、プロパティの値を好きなフォントに変えた上で、一番下の行に入力してください。
+                  <pre>
+/* --- フォントを変更する --- */
+body {
+  font-family: YuMincho, 'Yu Mincho', serif;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: "Lucida Console", Monaco, monospace;
+}</pre>
+                </li>
+                <li>デザイン設定を保存すると、フォントが変更されます</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- end block -->
+        <div class="block">
+          <h3 class="block__title">色を変更する</h3>
+          <div class="block__body">
+            <div class="block__sub">
+              <img src="images/customize-color.png" alt="">
+            </div>
+            <div class="block__main">
+              <p>カラーテーマ（初期値：青）を変更したい場合などに使ってください。</p>
+              <ol>
+                <li>はてなブログのデザイン設定を開き、カスタマイズタブを開きます。</li>
+                <li>「デザインCSS」項目を開き、以下の CSS、プロパティの値を好きな色に変えた上で、一番下の行に入力してください。
+                  <pre>
+/* --- 色を変更する --- */
+/* color/theme-color */
+.hatena-module-search-box .search-module-input:focus {
+  border-color: crimson;
+}
+
+/* color/theme-sub-color */
+.hatena-urllist a,
+.hatena-urllist a:hover,
+.hatena-urllist a:visited,
+.pager .pager-prev a,
+.pager .pager-next a {
+  color: fireBrick;
+}
+
+.pager .pager-prev:before {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><polygon fill='%23b22222' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8' transform='matrix(-1 0 0 1 15.886 0)'/></svg>"); /* fill属性の指定、"%23" に続くカラーコード（初期値：0000ff）を変更してください */
+}
+
+.pager .pager-next::after {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><polygon fill='%23b22222' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8'/></svg>"); /* fill属性の指定、"%23" に続くカラーコード（初期値：0000ff）を変更してください */
+}
+
+/* color/theme-header-color */
+#globalheader-container,
+#blog-title {
+  background-color: crimson;
+}
+
+#globalheader-container,
+#title a {
+  color: white;
+}
+
+/* color/theme-comment-button-color */
+.entry-footer .leave-comment-title {
+  background-color: fireBrick;
+}
+
+/* color/link-color */
+a {
+  color: royalBlue;
+}
+
+a:visited {
+  color: rebeccaPurple;
+}
+
+/* color/selection-color */
+::selection {
+  background-color: rebeccaPurple;
+}
+
+::-moz-selection {
+  background-color: rebeccaPurple;
+}
+
+/* color/highlight-color */
+mark,
+.page-archive span.highlight{
+  background-color: gold;
+}
+
+/* color/black */
+body,
+mark,
+h1 a, h1 a:hover, h1 a:visited,
+h2 a, h2 a:hover, h2 a:visited,
+h3 a, h3 a:hover, h3 a:visited,
+h4 a, h4 a:hover, h4 a:visited,
+h5 a, h5 a:hover, h5 a:visited,
+h6 a, h6 a:hover, h6 a:visited,
+a.keyword,
+.data a,
+.entry-header-menu a,
+.entry-content cite a,
+.entry-footer .entry-footer-section a,
+.entry-footer .entry-footer-section .entry-footer-item a,
+.entry-footer .hatena-module-related-entries .urllist-title-link a,
+#footer-inner,
+#footer-inner a,
+.hatena-module-title a,
+.hatena-urllist .urllist-date-link a,
+.hatena-module-search-box .search-module-input a,
+.page-archive .date a,
+.page-archive span.highlight {
+  color: #333;
+}
+
+.entry-header-menu a {
+  border-color: #333;
+}
+
+.entry-content cite:before,
+.entry-content pre {
+  background-color: #333;
+}
+
+/* color/dark-gray */
+.categories a,
+.entry-footer .entry-footer-section,
+.entry-footer .entry-footer-section .entry-footer-time a,
+.entry-footer .comment-box ul .comment-metadata {
+  color: dimGray;
+}</pre>
+                </li>
+                <li>デザイン設定を保存すると、色が変更されます</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- end block -->
+        <div class="block">
+          <h3 class="block__title">ヘッダータイトルを SVG ロゴに置き換え、背景を消して中央に配置</h3>
+          <div class="block__body">
+            <div class="block__sub">
+              <img src="images/customize-header-svg-logo.png" alt="">
+            </div>
+            <div class="block__main">
+              <p>HTML テキストの代わりに SVG 画像を載せたい場合などに使ってください。</p>
+              <ol>
+                <li>はてなブログのデザイン設定を開き、カスタマイズタブを開きます。</li>
+                <li>「ヘッダ」項目を開き、その中の「タイトル下」に以下の HTML を入力してください。SVG 要素の部分はコードの中にあるコメントを一度見ていただいた上で、好きなものに置き換えてください。
+                  <pre>
+<div class="custom-header">
+  <div class="custom-header-inner">
+    <a href="/" class="custom-header-logo">
+      <!-- SVG 画像は使いたい画像に置き換えてください。また、画像を置き換える際、svg 要素の class 属性だけは変更しないでください -->
+      <!-- SVG 要素（start） -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="46" height="12" viewBox="0 0 46 12" role="img" aria-labelledby="custom-header-logo" class="custom-header-logo">
+        <title id="custom-header-logo">LOGO</title>
+        <path fill-rule="evenodd" d="M7.8125,9.0625 L7.53125,11 L-0.1875,11 L1.3828125,0.171875 L4.171875,0.171875 L2.875,9.0625 L7.8125,9.0625 Z M20.671875,4.96875 C20.671875,5.84896273 20.5273452,6.66405875 20.2382812,7.4140625 C19.9492173,8.16406625 19.5286486,8.81900762 18.9765625,9.37890625 C18.4244764,9.93880488 17.7656288,10.3723943 17,10.6796875 C16.2343712,10.9869807 15.3776089,11.140625 14.4296875,11.140625 C13.5703082,11.140625 12.7252646,10.9765641 11.8945312,10.6484375 C11.0637979,10.3203109 10.3776069,9.78515996 9.8359375,9.04296875 C9.29426813,8.30077754 9.0234375,7.3593807 9.0234375,6.21875 C9.0234375,5.22916172 9.19531078,4.34375391 9.5390625,3.5625 C9.88281422,2.78124609 10.3541637,2.1276068 10.953125,1.6015625 C11.5520863,1.0755182 12.2291629,0.680990898 12.984375,0.41796875 C13.7395871,0.154946602 14.5416624,0.0234375 15.390625,0.0234375 C16.39063,0.0234375 17.2929647,0.222654258 18.0976562,0.62109375 C18.9023478,1.01953324 19.5325498,1.59374625 19.9882812,2.34375 C20.4440127,3.09375375 20.671875,3.968745 20.671875,4.96875 Z M17.7734375,5.15625 C17.7734375,4.61458063 17.6666677,4.14062703 17.453125,3.734375 C17.2395823,3.32812297 16.9440123,3.01302195 16.5664062,2.7890625 C16.1888002,2.56510305 15.7526066,2.453125 15.2578125,2.453125 C14.5651007,2.453125 13.9648463,2.63671691 13.4570312,3.00390625 C12.9492162,3.37109559 12.5651055,3.83463262 12.3046875,4.39453125 C12.0442695,4.95442988 11.9140625,5.51822633 11.9140625,6.0859375 C11.9140625,6.81510781 12.1419248,7.43489328 12.5976562,7.9453125 C13.0533877,8.45573172 13.6796835,8.7109375 14.4765625,8.7109375 C14.9817734,8.7109375 15.437498,8.6145843 15.84375,8.421875 C16.250002,8.2291657 16.6002589,7.96224129 16.8945312,7.62109375 C17.1888036,7.27994621 17.4088534,6.89713754 17.5546875,6.47265625 C17.7005216,6.04817496 17.7734375,5.60937727 17.7734375,5.15625 Z M32.890625,0.5078125 L32.5234375,2.859375 C31.3880152,2.53645672 30.3177134,2.375 29.3125,2.375 C28.3072866,2.375 27.4700554,2.55989398 26.8007812,2.9296875 C26.1315071,3.29948102 25.648439,3.76171598 25.3515625,4.31640625 C25.054686,4.87109652 24.90625,5.42968469 24.90625,5.9921875 C24.90625,6.4661482 25.0117177,6.91145625 25.2226562,7.328125 C25.4335948,7.74479375 25.7447896,8.07942582 26.15625,8.33203125 C26.5677104,8.58463668 27.0520805,8.7109375 27.609375,8.7109375 C27.8489595,8.7109375 28.0833322,8.69140645 28.3125,8.65234375 C28.5416678,8.61328105 28.7395825,8.57031273 28.90625,8.5234375 C29.0729175,8.47656227 29.2187494,8.43229188 29.34375,8.390625 L29.5625,6.953125 L27.6640625,6.953125 L27.9453125,5.015625 L32.3046875,5.015625 L31.546875,10.265625 C31.1614564,10.4114591 30.7630229,10.5468744 30.3515625,10.671875 C29.9401021,10.7968756 29.4778671,10.9062495 28.9648438,11 C28.4518204,11.0937505 27.9375026,11.140625 27.421875,11.140625 C26.6874963,11.140625 25.9987011,11.0390635 25.3554688,10.8359375 C24.7122364,10.6328115 24.1354192,10.3216167 23.625,9.90234375 C23.1145808,9.48307082 22.7187514,8.96745098 22.4375,8.35546875 C22.1562486,7.74348652 22.015625,7.03646234 22.015625,6.234375 C22.015625,5.67708055 22.0963534,5.06771164 22.2578125,4.40625 C22.4192716,3.74478836 22.7460913,3.07682629 23.2382812,2.40234375 C23.7304712,1.72786121 24.4791616,1.1627627 25.484375,0.70703125 C26.4895884,0.251299805 27.7656173,0.0234375 29.3125,0.0234375 C30.5416728,0.0234375 31.7343692,0.184894219 32.890625,0.5078125 Z M45.359375,4.96875 C45.359375,5.84896273 45.2148452,6.66405875 44.9257812,7.4140625 C44.6367173,8.16406625 44.2161486,8.81900762 43.6640625,9.37890625 C43.1119764,9.93880488 42.4531288,10.3723943 41.6875,10.6796875 C40.9218712,10.9869807 40.0651089,11.140625 39.1171875,11.140625 C38.2578082,11.140625 37.4127646,10.9765641 36.5820312,10.6484375 C35.7512979,10.3203109 35.0651069,9.78515996 34.5234375,9.04296875 C33.9817681,8.30077754 33.7109375,7.3593807 33.7109375,6.21875 C33.7109375,5.22916172 33.8828108,4.34375391 34.2265625,3.5625 C34.5703142,2.78124609 35.0416637,2.1276068 35.640625,1.6015625 C36.2395863,1.0755182 36.9166629,0.680990898 37.671875,0.41796875 C38.4270871,0.154946602 39.2291624,0.0234375 40.078125,0.0234375 C41.07813,0.0234375 41.9804647,0.222654258 42.7851562,0.62109375 C43.5898478,1.01953324 44.2200498,1.59374625 44.6757812,2.34375 C45.1315127,3.09375375 45.359375,3.968745 45.359375,4.96875 Z M42.4609375,5.15625 C42.4609375,4.61458063 42.3541677,4.14062703 42.140625,3.734375 C41.9270823,3.32812297 41.6315123,3.01302195 41.2539062,2.7890625 C40.8763002,2.56510305 40.4401066,2.453125 39.9453125,2.453125 C39.2526007,2.453125 38.6523463,2.63671691 38.1445312,3.00390625 C37.6367162,3.37109559 37.2526055,3.83463262 36.9921875,4.39453125 C36.7317695,4.95442988 36.6015625,5.51822633 36.6015625,6.0859375 C36.6015625,6.81510781 36.8294248,7.43489328 37.2851562,7.9453125 C37.7408877,8.45573172 38.3671835,8.7109375 39.1640625,8.7109375 C39.6692734,8.7109375 40.124998,8.6145843 40.53125,8.421875 C40.937502,8.2291657 41.2877589,7.96224129 41.5820312,7.62109375 C41.8763036,7.27994621 42.0963534,6.89713754 42.2421875,6.47265625 C42.3880216,6.04817496 42.4609375,5.60937727 42.4609375,5.15625 Z"/>
+      </svg>
+      <!-- SVG 要素（end） -->
+    </a>
+  </div>
+</div></pre>
+                </li>
+                <li>「デザインCSS」項目を開き、以下の CSS、プロパティの値を好きなフォントに変えた上で、一番下の行に入力してください。.custom-header-logo で指定しているサイズはや色は、利用する SVG ロゴに合わせて変更してください。
+                  <pre>
+/* --- ヘッダータイトルを SVG ロゴに置き換え、背景を消して中央に配置 --- */
+#blog-title {
+  display: none;
+}
+
+.custom-header {
+  /* 背景に色や画像を指定するときはここで指定 */
+  margin-top: calc(3rem + 44px);
+  margin-bottom: 3rem;
+}
+
+@media screen and (min-width: 60rem) {
+  .custom-header {
+    margin-top: calc(3rem + 37px);
+  }
+}
+
+.custom-header-inner {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.custom-header-logo {
+  display: block;
+  margin: auto;
+  width: 16rem;
+  height: auto; /* ロゴの横幅に対する比率を掛け合わせる */
+  fill: blue;
+}</pre>
+                </li>
+                <li>デザイン設定を保存すると、ヘッダータイトルに SVG ロゴが水平方向に中央配置された状態で表示されます</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- end block -->
       </div>
     </section>
     <section class="section example">

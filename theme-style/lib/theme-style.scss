@@ -920,6 +920,9 @@ a.keyword {
     margin-bottom: $size * 1.5;
     border-radius: $r;
   }
+  .hatena-id-link {
+    color: $theme-sub-color;
+  }
   .profile-description {
     @include break {
       font-size: $size * 1.5;
@@ -1331,7 +1334,7 @@ a.keyword {
 // #title a {
 //   color: white;
 // }
-// 
+
 // /* color/theme-comment-button-color */
 // .entry-footer .leave-comment-title {
 //   background-color: fireBrick;
@@ -1404,15 +1407,21 @@ a.keyword {
 //   color: dimGray;
 // }
 
-// /* --- ヘッダータイトルを SVG ロゴに置き換え、中央配置にしてシンプルに見せる --- */
+// /* --- ヘッダータイトルを SVG ロゴに置き換え、背景を消して中央に配置 --- */
 // #blog-title {
 //   display: none;
 // }
 // 
 // .custom-header {
 //   /* 背景に色や画像を指定するときはここで指定 */
-//   margin-top: calc(3rem + 37px);
+//   margin-top: calc(3rem + 44px);
 //   margin-bottom: 3rem;
+// }
+// 
+// @media screen and (min-width: 60rem) {
+//   .custom-header {
+//     margin-top: calc(3rem + 37px);
+//   }
 // }
 // 
 // .custom-header-inner {

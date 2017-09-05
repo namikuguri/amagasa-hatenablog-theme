@@ -762,6 +762,9 @@ a.keyword {
   margin-bottom: 0.75rem;
   border-radius: 3px; }
 
+.hatena-module-profile .hatena-id-link {
+  color: #4682B4; }
+
 @media screen and (min-width: 60rem) {
   .hatena-module-profile .profile-description {
     font-size: 0.75rem; } }
