@@ -23,7 +23,7 @@
     <section class="section">
       <div class="content">
         <h2 class="section-title">Gallery</h2>
-        <p class="section-desc">Amagasa テーマをあなたのブログに適用すると、次のような見た目になります。</p>
+        <p class="section-desc">Amagasa テーマをあなたのブログに適用すると、次のような見た目になります。<small class="section-desc__note">（2017年9月3日時点）</small></p>
         <ul class="shot-list">
           <li>
             <a href="images/shot-top.png" class="shot-list__link">
@@ -518,10 +518,10 @@ a.keyword,
           });
         };
       }(String));
-var pre = document.querySelectorAll('pre');
-for(var i = 0; i < pre.length; i++) {
-  pre[i].innerHTML = escapeHtml(pre[i].innerHTML);
-}
-</script>
-</body>
+      var pre = document.querySelectorAll('pre');
+      for(var i = 0; i < pre.length; i++) {
+        pre[i].innerHTML = escapeHtml(pre[i].innerHTML);
+      }
+    </script>
+  </body>
 </html>
