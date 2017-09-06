@@ -748,13 +748,14 @@ a.keyword {
   @include clear;
   .pager-prev,
   .pager-next {
-    display: block;
+    display: inline-block;
     margin-top: $size;
     margin-bottom: $size;
     padding: $size;
     border-radius: $r;
     background-color: $light-gray;
     @include break {
+      display: block;
       max-width: 45%;
       background-color: transparent;
       margin: 0;
@@ -782,8 +783,10 @@ a.keyword {
   }
   .pager-prev {
     position: relative;
+    margin-right: .5rem;
     @include break {
       float: left;
+      margin-right: 0;
     }
     &:before {
       content: "";

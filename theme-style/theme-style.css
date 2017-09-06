@@ -618,7 +618,7 @@ a.keyword {
     clear: both; }
   .pager .pager-prev,
   .pager .pager-next {
-    display: block;
+    display: inline-block;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     padding: 0.5rem;
@@ -627,6 +627,7 @@ a.keyword {
     @media screen and (min-width: 60rem) {
       .pager .pager-prev,
       .pager .pager-next {
+        display: block;
         max-width: 45%;
         background-color: transparent;
         margin: 0;
@@ -652,10 +653,12 @@ a.keyword {
       .pager .pager-next a .pager-arrow {
         display: none; }
   .pager .pager-prev {
-    position: relative; }
+    position: relative;
+    margin-right: .5rem; }
     @media screen and (min-width: 60rem) {
       .pager .pager-prev {
-        float: left; } }
+        float: left;
+        margin-right: 0; } }
     .pager .pager-prev:before {
       content: "";
       display: inline-block;
