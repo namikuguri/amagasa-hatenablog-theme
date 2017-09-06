@@ -404,7 +404,9 @@ a.keyword {
 .breadcrumb {
   margin: 0 auto;
   max-width: $content-size;
-  font-size: $size * 1.75;
+  @include break {
+    font-size: $size * 1.75;
+  }
 }
 .breadcrumb-link {
   color: $theme-sub-color;
@@ -451,12 +453,14 @@ a.keyword {
       background-color: $white;
       border: 1px solid $black;
       border-radius: $r;
-      font-size: $size * 1.75;
       text-decoration: none;
       cursor: pointer;
       &:hover {
         border-color: $gray;
         color: $gray;
+      }
+      @include break {
+        font-size: $size * 1.75;
       }
     }
   }
@@ -467,8 +471,15 @@ a.keyword {
     margin-top: $size * 2;
     margin-bottom: $size * 2;
   }
+  a {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
   a.keyword {
     border-bottom: none;
+    text-decoration: none;
   }
   img {
     max-width: 100%;
@@ -888,10 +899,10 @@ a.keyword {
     padding: $size * 2;
     box-sizing: border-box;
     margin-bottom: 0;
-    font-size: $size * 1.75;
     @include break {
       margin-bottom: $size * 4;
       padding: 0;
+      font-size: $size * 1.75;
     }
     &:nth-child(odd) {
       background-color: $light-gray;
@@ -952,7 +963,6 @@ a.keyword {
     font-weight: normal;
   }
   .profile-description {
-    font-size: $size * 1.75;
     p {
       margin-top: 0;
       margin-bottom: 0;
@@ -1065,7 +1075,7 @@ a.keyword {
     height: $size * 1.5;
     border: none;
     background-color: transparent;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><path fill='#{url-friendly-colour($dark-gray)}' d='M11.7489008,10.3346872 L15.9568544,14.5426409 L14.5426409,15.9568544 L10.3346872,11.7489008 C9.2597335,12.5355664 7.9341039,13 6.5,13 C2.91014913,13 0,10.0898509 0,6.5 C0,2.91014913 2.91014913,0 6.5,0 C10.0898509,0 13,2.91014913 13,6.5 C13,7.9341039 12.5355664,9.2597335 11.7489008,10.3346872 Z M6.5,11 C8.98528137,11 11,8.98528137 11,6.5 C11,4.01471863 8.98528137,2 6.5,2 C4.01471863,2 2,4.01471863 2,6.5 C2,8.98528137 4.01471863,11 6.5,11 Z'/></svg>"); /* fill属性の指定、"%23" に続くカラーコード（初期値：0000ff）を変更してください */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><path fill='#{url-friendly-colour($dark-gray)}' d='M11.7489008,10.3346872 L15.9568544,14.5426409 L14.5426409,15.9568544 L10.3346872,11.7489008 C9.2597335,12.5355664 7.9341039,13 6.5,13 C2.91014913,13 0,10.0898509 0,6.5 C0,2.91014913 2.91014913,0 6.5,0 C10.0898509,0 13,2.91014913 13,6.5 C13,7.9341039 12.5355664,9.2597335 11.7489008,10.3346872 Z M6.5,11 C8.98528137,11 11,8.98528137 11,6.5 C11,4.01471863 8.98528137,2 6.5,2 C4.01471863,2 2,4.01471863 2,6.5 C2,8.98528137 4.01471863,11 6.5,11 Z'/></svg>");
     background-repeat: no-repeat;
     background-position: right center;
     background-size: contain;
@@ -1338,44 +1348,42 @@ a.keyword {
 // }
 
 // /* --- 色を変更する --- */
-// /* color/theme-color */
-// .hatena-module-search-box .search-module-input:focus {
-//   border-color: crimson;
-// }
-// 
-// /* color/theme-sub-color */
-// .hatena-urllist a,
-// .hatena-urllist a:hover,
-// .hatena-urllist a:visited,
-// .pager .pager-prev a,
-// .pager .pager-next a {
-//   color: fireBrick;
-// }
-// 
-// .pager .pager-prev:before {
-//   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><polygon fill='%23b22222' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8' transform='matrix(-1 0 0 1 15.886 0)'/></svg>"); /* fill属性の指定、"%23" に続くカラーコード（初期値：0000ff）を変更してください */
-// }
-// 
-// .pager .pager-next::after {
-//   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><polygon fill='%23b22222' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8'/></svg>"); /* fill属性の指定、"%23" に続くカラーコード（初期値：0000ff）を変更してください */
-// }
-// 
 // /* color/theme-header-color */
 // #globalheader-container,
-// #blog-title {
+// #blog-title,
+// .entry-footer .leave-comment-title {
 //   background-color: crimson;
 // }
 // 
-// #globalheader-container,
-// #title a {
-//   color: white;
-// }
-
-// /* color/theme-comment-button-color */
-// .entry-footer .leave-comment-title {
-//   background-color: fireBrick;
+// /* color/theme-sub-color */
+// .breadcrumb-link,
+// .breadcrumb-link:visited,
+// .entry-footer .comment-box ul li .comment-user-id,
+// .entry-footer .comment-box ul li .comment-user-id:visited,
+// .pager .pager-prev a,
+// .pager .pager-next a,
+// .pager .pager-prev a:visited,
+// .pager .pager-next a:visited,
+// .hatena-module a,
+// .hatena-module a:visited {
+//   color: fireBrick;
 // }
 // 
+// .hatena-module-search-box .search-module-input:focus {
+//   border-color: fireBrick;
+// }
+// 
+// .pager .pager-prev:before {
+//   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><polygon fill='%23b22222' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8' transform='matrix(-1 0 0 1 15.886 0)'/></svg>"); /* fill属性の指定、"%23" に続くカラーコードを変更してください */
+// }
+// 
+// .pager .pager-next::after {
+//   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><polygon fill='%23b22222' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8'/></svg>"); /* fill属性の指定、"%23" に続くカラーコードを変更してください */
+// }
+// 
+// .hatena-module-search-box .search-module-input:focus + .search-module-button {
+//   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><path fill='%23b22222' d='M11.7489008,10.3346872 L15.9568544,14.5426409 L14.5426409,15.9568544 L10.3346872,11.7489008 C9.2597335,12.5355664 7.9341039,13 6.5,13 C2.91014913,13 0,10.0898509 0,6.5 C0,2.91014913 2.91014913,0 6.5,0 C10.0898509,0 13,2.91014913 13,6.5 C13,7.9341039 12.5355664,9.2597335 11.7489008,10.3346872 Z M6.5,11 C8.98528137,11 11,8.98528137 11,6.5 C11,4.01471863 8.98528137,2 6.5,2 C4.01471863,2 2,4.01471863 2,6.5 C2,8.98528137 4.01471863,11 6.5,11 Z'/></svg>"); /* fill属性の指定、"%23" に続くカラーコードを変更してください */
+// }
 // /* color/link-color */
 // a {
 //   color: royalBlue;
@@ -1413,14 +1421,14 @@ a.keyword {
 // .data a,
 // .entry-header-menu a,
 // .entry-content cite a,
-// .entry-footer .entry-footer-section a,
-// .entry-footer .entry-footer-section .entry-footer-item a,
+// .entry-footer .hatena-module-related-entries .hatena-urllist .urllist-title-link,
 // .entry-footer .hatena-module-related-entries .urllist-title-link a,
 // #footer-inner,
 // #footer-inner a,
 // .hatena-module-title a,
+// .hatena-module-title a:visited,
 // .hatena-urllist .urllist-date-link a,
-// .hatena-module-search-box .search-module-input a,
+// .hatena-module-search-box .search-module-input,
 // .page-archive .date a,
 // .page-archive span.highlight {
 //   color: #333;
@@ -1438,9 +1446,15 @@ a.keyword {
 // /* color/dark-gray */
 // .categories a,
 // .entry-footer .entry-footer-section,
+// .entry-footer .entry-footer-section a,
 // .entry-footer .entry-footer-section .entry-footer-time a,
-// .entry-footer .comment-box ul .comment-metadata {
+// .entry-footer .comment-box ul .comment-metadata,
+// .entry-footer .hatena-module-related-entries .hatena-urllist .urllist-category-link {
 //   color: dimGray;
+// }
+// 
+// .hatena-module-search-box .search-module-button {
+//   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><path fill='%23696969' d='M11.7489008,10.3346872 L15.9568544,14.5426409 L14.5426409,15.9568544 L10.3346872,11.7489008 C9.2597335,12.5355664 7.9341039,13 6.5,13 C2.91014913,13 0,10.0898509 0,6.5 C0,2.91014913 2.91014913,0 6.5,0 C10.0898509,0 13,2.91014913 13,6.5 C13,7.9341039 12.5355664,9.2597335 11.7489008,10.3346872 Z M6.5,11 C8.98528137,11 11,8.98528137 11,6.5 C11,4.01471863 8.98528137,2 6.5,2 C4.01471863,2 2,4.01471863 2,6.5 C2,8.98528137 4.01471863,11 6.5,11 Z'/></svg>"); /* fill属性の指定、"%23" に続くカラーコードを変更してください */
 // }
 
 // /* --- ヘッダータイトルを SVG ロゴに置き換え、背景を消して中央に配置 --- */
