@@ -1,0 +1,4 @@
+// background-image に指定した SVG の fill 指定に使う
+@function url-friendly-colour($colour) {
+    @return '%23' + str-slice('#{$colour}', 2, -1)
+}

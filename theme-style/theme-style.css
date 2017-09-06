@@ -50,12 +50,12 @@ dfn {
   font-style: italic; }
 
 small {
-  font-size: 0.75rem; }
+  font-size: 0.875rem; }
 
 sub,
 sup {
   position: relative;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   line-height: 0;
   vertical-align: baseline; }
 
@@ -219,8 +219,7 @@ table {
 
 #top-box {
   padding: 0.5rem;
-  background-color: #f5f5f5;
-  font-size: 1rem; }
+  background-color: #f5f5f5; }
 
 #content {
   margin: 0 auto;
@@ -248,13 +247,11 @@ table {
 #box1 {
   padding: 0 1rem; }
 
-#box2 {
-  font-size: 1rem; }
-  @media screen and (min-width: 60rem) {
-    #box2 {
-      float: right;
-      max-width: 16rem;
-      width: 100%; } }
+@media screen and (min-width: 60rem) {
+  #box2 {
+    float: right;
+    max-width: 16rem;
+    width: 100%; } }
 
 #footer {
   margin-top: 1rem;
@@ -268,25 +265,25 @@ table {
 * Module
 *********************/
 h1 a,
-h1 a:hover,
-h1 a:visited,
 h2 a,
-h2 a:hover,
-h2 a:visited,
 h3 a,
-h3 a:hover,
-h3 a:visited,
 h4 a,
-h4 a:hover,
-h4 a:visited,
 h5 a,
-h5 a:hover,
-h5 a:visited,
-h6 a,
-h6 a:hover,
-h6 a:visited {
-  color: #000;
-  text-decoration: none; }
+h6 a {
+  color: #000; }
+  h1 a:hover, h1 a:visited,
+  h2 a:hover,
+  h2 a:visited,
+  h3 a:hover,
+  h3 a:visited,
+  h4 a:hover,
+  h4 a:visited,
+  h5 a:hover,
+  h5 a:visited,
+  h6 a:hover,
+  h6 a:visited {
+    color: #000;
+    text-decoration: none; }
 
 a.keyword {
   border-bottom: 1px dotted #ccc;
@@ -332,10 +329,15 @@ a.keyword {
   font-size: 1rem;
   font-weight: 300; }
 
-#top-box .breadcrumb {
+.breadcrumb {
   margin: 0 auto;
   max-width: 60rem;
-  font-size: 0.75rem; }
+  font-size: 0.875rem; }
+
+.breadcrumb-link {
+  color: #4682B4; }
+  .breadcrumb-link:visited {
+    color: #4682B4; }
 
 .entry {
   position: relative;
@@ -370,7 +372,7 @@ a.keyword {
       background-color: #fff;
       border: 1px solid #000;
       border-radius: 3px;
-      font-size: 0.75rem;
+      font-size: 0.875rem;
       text-decoration: none;
       cursor: pointer; }
       .entry-header .entry-header-menu a:hover {
@@ -457,7 +459,7 @@ a.keyword {
   .entry-content blockquote cite {
     display: inline-block;
     margin-top: 1rem;
-    font-size: 0.75rem; }
+    font-size: 0.875rem; }
     .entry-content blockquote cite:before {
       content: "";
       display: inline-block;
@@ -475,10 +477,8 @@ a.keyword {
 
 .entry-content pre {
   background-color: #000;
-  color: #fff; }
-  @media screen and (min-width: 60rem) {
-    .entry-content pre {
-      font-size: 0.875rem; } }
+  color: #fff;
+  font-size: 0.875rem; }
 
 .entry-content code {
   display: inline-block;
@@ -507,14 +507,14 @@ a.keyword {
   .entry-content .hatena-asin-detail ul {
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 0.75rem; }
+    font-size: 0.875rem; }
 
 .entry-footer {
   margin-top: 2rem; }
   .entry-footer .entry-footer-section {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     color: #767676; }
     .entry-footer .entry-footer-section .entry-footer-time a {
       color: #767676; }
@@ -539,8 +539,11 @@ a.keyword {
       background-color: #f5f5f5; }
     .entry-footer .comment-box ul .comment-user-name {
       margin-top: 0;
-      margin-bottom: 0;
-      font-weight: bold; }
+      margin-bottom: 0; }
+    .entry-footer .comment-box ul .comment-user-id {
+      color: #4682B4; }
+      .entry-footer .comment-box ul .comment-user-id:visited {
+        color: #4682B4; }
     .entry-footer .comment-box ul .hatena-id-icon {
       position: absolute;
       top: 0.75rem;
@@ -555,7 +558,7 @@ a.keyword {
       .entry-footer .comment-box ul .comment-content p {
         margin-top: 0; }
     .entry-footer .comment-box ul .comment-metadata {
-      font-size: 0.75rem;
+      font-size: 0.875rem;
       color: #767676; }
   .entry-footer .leave-comment-title {
     display: inline-block;
@@ -567,10 +570,8 @@ a.keyword {
     text-align: center;
     vertical-align: middle;
     text-decoration: none;
-    cursor: pointer; }
-    @media screen and (min-width: 60rem) {
-      .entry-footer .leave-comment-title {
-        font-size: 0.75rem; } }
+    cursor: pointer;
+    font-size: 0.875rem; }
     .entry-footer .leave-comment-title:hover {
       opacity: 0.75;
       transition: 0.3s; }
@@ -585,9 +586,8 @@ a.keyword {
       margin-top: 1rem;
       margin-bottom: 1rem; }
     .entry-footer .hatena-module-related-entries .hatena-urllist .urllist-title-link {
-      font-size: 1rem;
-      font-weight: bold;
-      color: #000; }
+      font-size: 1.25rem;
+      font-weight: bold; }
   .entry-footer .hatena-module-related-entries .urllist-with-thumbnails li .urllist-image {
     margin-right: 1rem;
     width: 6rem;
@@ -626,7 +626,8 @@ a.keyword {
       display: inline-block;
       font-weight: bold;
       color: #4682B4;
-      vertical-align: middle; }
+      vertical-align: middle;
+      cursor: pointer; }
       @media screen and (min-width: 60rem) {
         .pager .pager-prev a,
         .pager .pager-next a {
@@ -634,6 +635,9 @@ a.keyword {
       .pager .pager-prev a:hover,
       .pager .pager-next a:hover {
         text-decoration: none; }
+      .pager .pager-prev a:visited,
+      .pager .pager-next a:visited {
+        color: #4682B4; }
       .pager .pager-prev a .pager-arrow,
       .pager .pager-next a .pager-arrow {
         display: none; }
@@ -653,7 +657,7 @@ a.keyword {
       margin-bottom: auto;
       width: 1.25rem;
       height: 1.25rem;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><polygon fill='%234682B4' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8' transform='matrix(-1 0 0 1 15.886 0)'/></svg>");
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><polygon fill='%234682B4' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8' transform='matrix(-1 0 0 1 15.886 0)'/></svg>");
       background-repeat: no-repeat;
       background-size: contain; }
       @media screen and (min-width: 60rem) {
@@ -685,7 +689,7 @@ a.keyword {
       margin-bottom: auto;
       width: 1.25rem;
       height: 1.25rem;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><polygon fill='%234682B4' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8'/></svg>");
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><polygon fill='%234682B4' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8'/></svg>");
       background-repeat: no-repeat;
       background-size: contain; }
       @media screen and (min-width: 60rem) {
@@ -702,7 +706,7 @@ a.keyword {
       padding-right: 1.5rem; }
 
 #footer-inner {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: #000;
   text-align: center; }
   #footer-inner p {
@@ -713,10 +717,21 @@ a.keyword {
   #footer-inner address img {
     vertical-align: middle; }
 
+.hatena-module a {
+  color: #4682B4; }
+
+.hatena-module .hatena-module-title a {
+  color: #000; }
+  .hatena-module .hatena-module-title a:hover {
+    text-decoration: none; }
+  .hatena-module .hatena-module-title a:visited {
+    color: #000; }
+
 #box2-inner .hatena-module {
   padding: 1rem;
   box-sizing: border-box;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  font-size: 0.875rem; }
   @media screen and (min-width: 60rem) {
     #box2-inner .hatena-module {
       margin-bottom: 2rem;
@@ -732,21 +747,23 @@ a.keyword {
   margin-bottom: 0.5rem;
   font-size: 1rem;
   font-weight: bold; }
-  .hatena-module-title a {
-    color: #000;
-    text-decoration: none; }
 
 .hatena-urllist {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   padding-left: 1.25rem;
   list-style: disc; }
-  .hatena-urllist a {
-    color: #4682B4; }
-    .hatena-urllist a:hover, .hatena-urllist a:visited {
-      color: #4682B4; }
+  .hatena-urllist .urllist-title-link {
+    font-size: inherit; }
   .hatena-urllist .urllist-date-link {
-    font-size: 0.75rem; }
+    font-size: 0.875rem;
+    font-weight: bold;
+    line-height: 1.382; }
     .hatena-urllist .urllist-date-link a {
       color: #000; }
+  .hatena-urllist .urllist-category-link {
+    font-size: 0.875rem;
+    margin-right: 0.5rem; }
   .hatena-urllist .urllist-entry-body {
     font-size: 1rem; }
 
@@ -762,15 +779,13 @@ a.keyword {
   border-radius: 3px; }
 
 .hatena-module-profile .hatena-id-link {
-  color: #4682B4; }
+  font-weight: normal; }
 
-@media screen and (min-width: 60rem) {
-  .hatena-module-profile .profile-description {
-    font-size: 0.75rem; } }
-
-.hatena-module-profile .profile-description p {
-  margin-top: 0;
-  margin-bottom: 0; }
+.hatena-module-profile .profile-description {
+  font-size: 0.875rem; }
+  .hatena-module-profile .profile-description p {
+    margin-top: 0;
+    margin-bottom: 0; }
 
 .hatena-module-profile .hatena-follow-button-box {
   margin-top: 0.75rem;
@@ -780,6 +795,8 @@ a.keyword {
   padding-left: 0; }
   .hatena-module-circles .hatena-urllist li {
     margin-bottom: 0.5rem; }
+    .hatena-module-circles .hatena-urllist li a {
+      vertical-align: middle; }
 
 .hatena-module-circles .circle-urllist .circle-image {
   margin-right: 0.5rem;
@@ -791,6 +808,9 @@ a.keyword {
   padding-left: 0; }
   .hatena-module-authors-list .hatena-urllist li {
     margin-bottom: 0.5rem; }
+    .hatena-module-authors-list .hatena-urllist li a {
+      display: flex;
+      align-items: center; }
   .hatena-module-authors-list .hatena-urllist .authors-user-icon {
     margin-right: 0.5rem;
     width: 2rem;
@@ -805,9 +825,11 @@ a.keyword {
   .hatena-module-recent-comments .hatena-urllist li {
     margin-bottom: 0.5rem; }
   .hatena-module-recent-comments .hatena-urllist .user-id {
-    display: block;
+    display: flex;
+    align-items: center;
     margin-bottom: 0.25rem; }
     .hatena-module-recent-comments .hatena-urllist .user-id .hatena-id-icon {
+      margin-right: 0.5rem;
       width: 1.5rem;
       height: 1.5rem;
       border-radius: 50%;
@@ -826,13 +848,15 @@ a.keyword {
   border: 1px solid #ccc;
   border-radius: 3px;
   background: none;
+  background-color: #fff;
   color: #000;
+  line-height: 1.382;
   outline: none; }
   .hatena-module-search-box .search-module-input:focus {
-    border-color: #0000ff;
+    border-color: #4682B4;
     transition: 0.3s; }
     .hatena-module-search-box .search-module-input:focus + .search-module-button {
-      opacity: 1; }
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><path fill='%234682B4' d='M11.7489008,10.3346872 L15.9568544,14.5426409 L14.5426409,15.9568544 L10.3346872,11.7489008 C9.2597335,12.5355664 7.9341039,13 6.5,13 C2.91014913,13 0,10.0898509 0,6.5 C0,2.91014913 2.91014913,0 6.5,0 C10.0898509,0 13,2.91014913 13,6.5 C13,7.9341039 12.5355664,9.2597335 11.7489008,10.3346872 Z M6.5,11 C8.98528137,11 11,8.98528137 11,6.5 C11,4.01471863 8.98528137,2 6.5,2 C4.01471863,2 2,4.01471863 2,6.5 C2,8.98528137 4.01471863,11 6.5,11 Z'/></svg>"); }
 
 .hatena-module-search-box .search-module-button {
   position: absolute;
@@ -841,20 +865,20 @@ a.keyword {
   right: 0.5rem;
   margin-top: auto;
   margin-bottom: auto;
-  width: 1rem;
-  height: 1rem;
+  width: 0.75rem;
+  height: 0.75rem;
   border: none;
   background-color: transparent;
-  background-image: url(http://blog.hatena.ne.jp/images/theme/search.png);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><path fill='%23767676' d='M11.7489008,10.3346872 L15.9568544,14.5426409 L14.5426409,15.9568544 L10.3346872,11.7489008 C9.2597335,12.5355664 7.9341039,13 6.5,13 C2.91014913,13 0,10.0898509 0,6.5 C0,2.91014913 2.91014913,0 6.5,0 C10.0898509,0 13,2.91014913 13,6.5 C13,7.9341039 12.5355664,9.2597335 11.7489008,10.3346872 Z M6.5,11 C8.98528137,11 11,8.98528137 11,6.5 C11,4.01471863 8.98528137,2 6.5,2 C4.01471863,2 2,4.01471863 2,6.5 C2,8.98528137 4.01471863,11 6.5,11 Z'/></svg>");
+  /* fill属性の指定、"%23" に続くカラーコード（初期値：0000ff）を変更してください */
   background-repeat: no-repeat;
   background-position: right center;
   background-size: contain;
   outline: none;
   text-indent: -9999px;
-  opacity: .5;
   cursor: pointer; }
   .hatena-module-search-box .search-module-button:hover {
-    opacity: 1; }
+    opacity: 0.75; }
 
 /********************
 * Page
@@ -874,7 +898,7 @@ a.keyword {
   .page-archive .archive-entry:first-child {
     margin-top: 0; }
   .page-archive .archive-entry .date a {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     color: #000; }
   .page-archive .archive-entry .entry-title {
     margin-top: 0;

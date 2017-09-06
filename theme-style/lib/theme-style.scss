@@ -8,6 +8,7 @@
  */
 
 @import "https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css";
+@import "_function";
 @import "_variable";
 @import "_mixin";
 
@@ -65,13 +66,13 @@ dfn {
 }
 
 small {
-  font-size: $size * 1.5;
+  font-size: $size * 1.75;
 }
 
 sub,
 sup {
   position: relative;
-  font-size: $size * 1.5;
+  font-size: $size * 1.75;
   line-height: 0;
   vertical-align: baseline;
 }
@@ -246,8 +247,8 @@ table {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: $theme-header-color;
-  color: $theme-header-text-color;
+  background-color: $theme-color;
+  color: $white;
   @include break {
     position: fixed;
   }
@@ -263,14 +264,13 @@ table {
 #blog-title {
   height: $content-size * $ratio-gold-short-side;
   background-color: $theme-color;
-  color: $theme-header-text-color;
+  color: $white;
 }
 
 // Breadcrumb (Cateogry Page)
 #top-box {
   padding: $size;
   background-color: $light-gray;
-  font-size: $size * 2;
 }
 
 // Content
@@ -303,7 +303,6 @@ table {
 
 // Contenet/Sub
 #box2 { // モバイルのときは、#box2-inner で左右の余白をとる
-  font-size: $size * 2;
   @include break {
     float: right;
     max-width: $size * 32;
@@ -330,11 +329,13 @@ h3,
 h4,
 h5,
 h6 {
-  a,
-  a:hover,
-  a:visited {
+  a {
     color: $black;
-    text-decoration: none;
+    &:hover,
+    &:visited {
+      color: $black;
+      text-decoration: none;
+    }
   }
 }
 
@@ -389,7 +390,7 @@ a.keyword {
   font-size: $size * 8;
   line-height: $ratio-gold-neg;
   a {
-    color: $theme-header-text-color;
+    color: $white;
   }
 }
 
@@ -400,11 +401,15 @@ a.keyword {
 }
 
 // Breadcrumb
-#top-box {
-  .breadcrumb {
-    margin: 0 auto;
-    max-width: $content-size;
-    font-size: $size * 1.5;
+.breadcrumb {
+  margin: 0 auto;
+  max-width: $content-size;
+  font-size: $size * 1.75;
+}
+.breadcrumb-link {
+  color: $theme-sub-color;
+  &:visited {
+    color: $theme-sub-color;
   }
 }
 
@@ -446,7 +451,7 @@ a.keyword {
       background-color: $white;
       border: 1px solid $black;
       border-radius: $r;
-      font-size: $size * 1.5;
+      font-size: $size * 1.75;
       text-decoration: none;
       cursor: pointer;
       &:hover {
@@ -545,7 +550,7 @@ a.keyword {
     cite {
       display: inline-block;
       margin-top: $size * 2;
-      font-size: $size * 1.5;
+      font-size: $size * 1.75;
       &:before {
         content: "";
         display: inline-block;
@@ -567,9 +572,7 @@ a.keyword {
   pre {
     background-color: $black; // CSS シンタックスのときなど、背景が白めだと文字が見えない
     color: $white;
-    @include break {
-      font-size: $size * 1.75; // コード量をいい感じで見せつつ、小さすぎて見えなくならないように、微妙な値で設定
-    }
+    font-size: $size * 1.75;
   }
   code {
     display: inline-block;
@@ -600,7 +603,7 @@ a.keyword {
     ul {
       margin-top: 0;
       margin-bottom: 0;
-      font-size: $size * 1.5;
+      font-size: $size * 1.75;
     }
   }
 }
@@ -610,7 +613,7 @@ a.keyword {
   .entry-footer-section {
     margin-top: $size * 3;
     margin-bottom: $size * 3;
-    font-size: $size * 1.5;
+    font-size: $size * 1.75;
     color: $dark-gray;
     .entry-footer-time {
       a {
@@ -644,7 +647,12 @@ a.keyword {
       .comment-user-name {
         margin-top: 0;
         margin-bottom: 0;
-        font-weight: bold;
+      }
+      .comment-user-id {
+        color: $theme-sub-color;
+        &:visited {
+          color: $theme-sub-color;
+        }
       }
       .hatena-id-icon {
         position: absolute;
@@ -663,7 +671,7 @@ a.keyword {
         }
       }
       .comment-metadata {
-        font-size: $size * 1.5;
+        font-size: $size * 1.75;
         color: $dark-gray;
       }
     }
@@ -672,16 +680,14 @@ a.keyword {
     display: inline-block;
     padding: ($size / 2) $size;
     border-radius: $r;
-    background-color: $theme-comment-button-color;
+    background-color: $theme-color;
     font-weight: bold;
     color: $white;
     text-align: center;
     vertical-align: middle;
     text-decoration: none;
     cursor: pointer;
-    @include break {
-      font-size: $size * 1.5;
-    }
+    font-size: $size * 1.75;
     &:hover {
       opacity: $opacity;
       transition: $delay;
@@ -701,9 +707,8 @@ a.keyword {
         margin-bottom: $size * 2;
       }
       .urllist-title-link {
-        font-size: $size * 2;
+        font-size: $size * 2.5;
         font-weight: bold;
-        color: $black;
       }
     }
     .urllist-with-thumbnails {
@@ -749,11 +754,15 @@ a.keyword {
       font-weight: bold;
       color: $theme-sub-color;
       vertical-align: middle;
+      cursor: pointer;
       @include break {
         width: auto;
       }
       &:hover {
         text-decoration: none;
+      }
+      &:visited {
+        color: $theme-sub-color;
       }
       .pager-arrow {
         display: none;
@@ -776,7 +785,7 @@ a.keyword {
       margin-bottom: auto;
       width: $size * 2.5;
       height: $size * 2.5;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><polygon fill='%234682B4' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8' transform='matrix(-1 0 0 1 15.886 0)'/></svg>"); // fill='#...' change to fill='%23...'
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><polygon fill='#{url-friendly-colour($theme-sub-color)}' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8' transform='matrix(-1 0 0 1 15.886 0)'/></svg>");
       background-repeat: no-repeat;
       background-size: contain;
       @include break {
@@ -814,7 +823,7 @@ a.keyword {
       margin-bottom: auto;
       width: $size * 2.5;
       height: $size * 2.5;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><polygon fill='%234682B4' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8'/></svg>"); // fill='#...' change to fill='%23...'
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><polygon fill='#{url-friendly-colour($theme-sub-color)}' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8'/></svg>");
       background-repeat: no-repeat;
       background-size: contain;
       @include break {
@@ -839,7 +848,7 @@ a.keyword {
 
 // Footer
 #footer-inner {
-  font-size: $size * 1.5;
+  font-size: $size * 1.75;
   color: $black;
   text-align: center;
   p {
@@ -857,11 +866,29 @@ a.keyword {
 }
 
 // Hatena Module
-#box2-inner { // モバイルのときなど表示が違うので、#box1 に影響しないようにカスケーディングする
+.hatena-module {
+  a {
+    color: $theme-sub-color;
+  }
+  .hatena-module-title {
+    a {
+      color: $black;
+      &:hover {
+        text-decoration: none;
+      }
+      &:visited {
+        color: $black;
+      }
+    }
+  }
+}
+
+#box2-inner { // サイドバーのスタイル。モバイルのときなど表示が違うので、サイドバーに限定したいスタイルは #box1 に影響しないようにカスケーディングする
   .hatena-module {
     padding: $size * 2;
     box-sizing: border-box;
     margin-bottom: 0;
+    font-size: $size * 1.75;
     @include break {
       margin-bottom: $size * 4;
       padding: 0;
@@ -875,32 +902,34 @@ a.keyword {
   }
 }
 
+
+
 .hatena-module-title {
   margin-top: 0;
   margin-bottom: $size;
   font-size: $size * 2;
   font-weight: bold;
-  a {
-    color: $black;
-    text-decoration: none;
-  }
 }
 
 .hatena-urllist {
+  margin-top: $size;
+  margin-bottom: $size;
   padding-left: $size * 2.5;
   list-style: disc;
-  a {
-    color: $theme-sub-color;
-    &:hover,
-    &:visited {
-      color: $theme-sub-color;
-    }
+  .urllist-title-link {
+    font-size: inherit;
   }
   .urllist-date-link {
-    font-size: $size * 1.5;
+    font-size: $size * 1.75;
+    font-weight: bold;
+    line-height: $ratio-gold-neg;
     a {
       color: $black;
     }
+  }
+  .urllist-category-link {
+    font-size: $size * 1.75;
+    margin-right: $size;
   }
   .urllist-entry-body {
     font-size: $size * 2;
@@ -920,12 +949,10 @@ a.keyword {
     border-radius: $r;
   }
   .hatena-id-link {
-    color: $theme-sub-color;
+    font-weight: normal;
   }
   .profile-description {
-    @include break {
-      font-size: $size * 1.5;
-    }
+    font-size: $size * 1.75;
     p {
       margin-top: 0;
       margin-bottom: 0;
@@ -942,6 +969,9 @@ a.keyword {
     padding-left: 0;
     li {
       margin-bottom: $size;
+      a {
+        vertical-align: middle;
+      }
     }
   }
   .circle-urllist {
@@ -959,6 +989,10 @@ a.keyword {
     padding-left: 0;
     li {
       margin-bottom: $size;
+      a {
+        display: flex;
+        align-items: center;
+      }
     }
     .authors-user-icon {
       margin-right: $size;
@@ -980,9 +1014,11 @@ a.keyword {
       margin-bottom: $size;
     }
     .user-id {
-      display: block;
+      display: flex;
+      align-items: center;
       margin-bottom: $size / 2;
       .hatena-id-icon {
+        margin-right: $size;
         width: $size * 3;
         height: $size * 3;
         border-radius: 50%;
@@ -1006,13 +1042,15 @@ a.keyword {
     border: 1px solid $gray;
     border-radius: $r;
     background: none;
+    background-color: $white;
     color: $black;
+    line-height: $ratio-gold-neg;
     outline: none;
     &:focus {
-      border-color: $theme-color;
+      border-color: $theme-sub-color;
       transition: $delay;
       & + .search-module-button { // 隣接する虫眼鏡アイコンもアクティブな見た目にする
-        opacity: 1;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><path fill='#{url-friendly-colour($theme-sub-color)}' d='M11.7489008,10.3346872 L15.9568544,14.5426409 L14.5426409,15.9568544 L10.3346872,11.7489008 C9.2597335,12.5355664 7.9341039,13 6.5,13 C2.91014913,13 0,10.0898509 0,6.5 C0,2.91014913 2.91014913,0 6.5,0 C10.0898509,0 13,2.91014913 13,6.5 C13,7.9341039 12.5355664,9.2597335 11.7489008,10.3346872 Z M6.5,11 C8.98528137,11 11,8.98528137 11,6.5 C11,4.01471863 8.98528137,2 6.5,2 C4.01471863,2 2,4.01471863 2,6.5 C2,8.98528137 4.01471863,11 6.5,11 Z'/></svg>");
       }
     }
   }
@@ -1023,20 +1061,19 @@ a.keyword {
     right: $size;
     margin-top: auto;
     margin-bottom: auto;
-    width: $size * 2;
-    height: $size * 2;
+    width: $size * 1.5;
+    height: $size * 1.5;
     border: none;
     background-color: transparent;
-    background-image: url(http://blog.hatena.ne.jp/images/theme/search.png);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><path fill='#{url-friendly-colour($dark-gray)}' d='M11.7489008,10.3346872 L15.9568544,14.5426409 L14.5426409,15.9568544 L10.3346872,11.7489008 C9.2597335,12.5355664 7.9341039,13 6.5,13 C2.91014913,13 0,10.0898509 0,6.5 C0,2.91014913 2.91014913,0 6.5,0 C10.0898509,0 13,2.91014913 13,6.5 C13,7.9341039 12.5355664,9.2597335 11.7489008,10.3346872 Z M6.5,11 C8.98528137,11 11,8.98528137 11,6.5 C11,4.01471863 8.98528137,2 6.5,2 C4.01471863,2 2,4.01471863 2,6.5 C2,8.98528137 4.01471863,11 6.5,11 Z'/></svg>"); /* fill属性の指定、"%23" に続くカラーコード（初期値：0000ff）を変更してください */
     background-repeat: no-repeat;
     background-position: right center;
     background-size: contain;
     outline: none;
     text-indent: -9999px;
-    opacity: .5;
     cursor: pointer;
     &:hover {
-      opacity: 1;
+      opacity: $opacity;
     }
   }
 }
@@ -1065,7 +1102,7 @@ a.keyword {
     }
     .date {
       a {
-        font-size: $size * 1.5;
+        font-size: $size * 1.75;
         color: $black;
       }
     }
@@ -1316,11 +1353,11 @@ a.keyword {
 // }
 // 
 // .pager .pager-prev:before {
-//   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><polygon fill='%23b22222' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8' transform='matrix(-1 0 0 1 15.886 0)'/></svg>"); /* fill属性の指定、"%23" に続くカラーコード（初期値：0000ff）を変更してください */
+//   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><polygon fill='%23b22222' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8' transform='matrix(-1 0 0 1 15.886 0)'/></svg>"); /* fill属性の指定、"%23" に続くカラーコード（初期値：0000ff）を変更してください */
 // }
 // 
 // .pager .pager-next::after {
-//   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><polygon fill='%23b22222' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8'/></svg>"); /* fill属性の指定、"%23" に続くカラーコード（初期値：0000ff）を変更してください */
+//   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><polygon fill='%23b22222' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8'/></svg>"); /* fill属性の指定、"%23" に続くカラーコード（初期値：0000ff）を変更してください */
 // }
 // 
 // /* color/theme-header-color */
