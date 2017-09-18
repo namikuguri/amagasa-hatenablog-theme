@@ -90,6 +90,12 @@ mark {
   color: $black;
 }
 
+h1,
+h2,
+h3 {
+  font-weight: bold;
+}
+
 h1 {
   margin-top: $size * 6;
   margin-bottom: $size * 2;
@@ -788,7 +794,7 @@ a.keyword {
       margin-right: 0;
     }
     &:before {
-      content: "";
+      content: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpolygon fill='#{url-friendly-colour($theme-sub-color)}' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8' transform='matrix(-1 0 0 1 15.886 0)'/%3E%3C/svg%3E");
       display: inline-block;
       position: absolute;
       top: 0;
@@ -798,10 +804,8 @@ a.keyword {
       margin-bottom: auto;
       width: $size * 2.5;
       height: $size * 2.5;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><polygon fill='#{url-friendly-colour($theme-sub-color)}' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8' transform='matrix(-1 0 0 1 15.886 0)'/></svg>");
-      background-repeat: no-repeat;
-      background-size: contain;
       @include break {
+        top: -($size / 2); // アイコンとラベルを中央寄せに見せるため、マジックナンバーを指定
         left: 0;
         width: $size * 2;
         height: $size * 2;
@@ -826,7 +830,7 @@ a.keyword {
       float: right;
     }
     &:after {
-      content: "";
+      content: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpolygon fill='#{url-friendly-colour($theme-sub-color)}' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8'/%3E%3C/svg%3E");
       display: inline-block;
       position: absolute;
       top: 0;
@@ -836,10 +840,8 @@ a.keyword {
       margin-bottom: auto;
       width: $size * 2.5;
       height: $size * 2.5;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><polygon fill='#{url-friendly-colour($theme-sub-color)}' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8'/></svg>");
-      background-repeat: no-repeat;
-      background-size: contain;
       @include break {
+        top: -($size / 2); // アイコンとラベルを中央寄せに見せるため、マジックナンバーを指定
         right: 0;
         width: $size * 2;
         height: $size * 2;
@@ -1062,7 +1064,7 @@ a.keyword {
       border-color: $theme-sub-color;
       transition: $delay;
       & + .search-module-button { // 隣接する虫眼鏡アイコンもアクティブな見た目にする
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><path fill='#{url-friendly-colour($theme-sub-color)}' d='M11.7489008,10.3346872 L15.9568544,14.5426409 L14.5426409,15.9568544 L10.3346872,11.7489008 C9.2597335,12.5355664 7.9341039,13 6.5,13 C2.91014913,13 0,10.0898509 0,6.5 C0,2.91014913 2.91014913,0 6.5,0 C10.0898509,0 13,2.91014913 13,6.5 C13,7.9341039 12.5355664,9.2597335 11.7489008,10.3346872 Z M6.5,11 C8.98528137,11 11,8.98528137 11,6.5 C11,4.01471863 8.98528137,2 6.5,2 C4.01471863,2 2,4.01471863 2,6.5 C2,8.98528137 4.01471863,11 6.5,11 Z'/></svg>");
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='#{url-friendly-colour($theme-sub-color)}' d='M11.7489008,10.3346872 L15.9568544,14.5426409 L14.5426409,15.9568544 L10.3346872,11.7489008 C9.2597335,12.5355664 7.9341039,13 6.5,13 C2.91014913,13 0,10.0898509 0,6.5 C0,2.91014913 2.91014913,0 6.5,0 C10.0898509,0 13,2.91014913 13,6.5 C13,7.9341039 12.5355664,9.2597335 11.7489008,10.3346872 Z M6.5,11 C8.98528137,11 11,8.98528137 11,6.5 C11,4.01471863 8.98528137,2 6.5,2 C4.01471863,2 2,4.01471863 2,6.5 C2,8.98528137 4.01471863,11 6.5,11 Z'/%3E%3C/svg%3E");
       }
     }
   }
@@ -1077,7 +1079,7 @@ a.keyword {
     height: $size * 1.5;
     border: none;
     background-color: transparent;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><path fill='#{url-friendly-colour($dark-gray)}' d='M11.7489008,10.3346872 L15.9568544,14.5426409 L14.5426409,15.9568544 L10.3346872,11.7489008 C9.2597335,12.5355664 7.9341039,13 6.5,13 C2.91014913,13 0,10.0898509 0,6.5 C0,2.91014913 2.91014913,0 6.5,0 C10.0898509,0 13,2.91014913 13,6.5 C13,7.9341039 12.5355664,9.2597335 11.7489008,10.3346872 Z M6.5,11 C8.98528137,11 11,8.98528137 11,6.5 C11,4.01471863 8.98528137,2 6.5,2 C4.01471863,2 2,4.01471863 2,6.5 C2,8.98528137 4.01471863,11 6.5,11 Z'/></svg>");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='#{url-friendly-colour($dark-gray)}' d='M11.7489008,10.3346872 L15.9568544,14.5426409 L14.5426409,15.9568544 L10.3346872,11.7489008 C9.2597335,12.5355664 7.9341039,13 6.5,13 C2.91014913,13 0,10.0898509 0,6.5 C0,2.91014913 2.91014913,0 6.5,0 C10.0898509,0 13,2.91014913 13,6.5 C13,7.9341039 12.5355664,9.2597335 11.7489008,10.3346872 Z M6.5,11 C8.98528137,11 11,8.98528137 11,6.5 C11,4.01471863 8.98528137,2 6.5,2 C4.01471863,2 2,4.01471863 2,6.5 C2,8.98528137 4.01471863,11 6.5,11 Z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right center;
     background-size: contain;
@@ -1212,8 +1214,9 @@ a.keyword {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-($size / 2));
+    transform: translateX(-4px); // rem や % 単位を使うと IE で思うようにアニメーションしないので、px で指定
   }
+
 }
 
 @keyframes animation-floating-right {
@@ -1221,7 +1224,7 @@ a.keyword {
     transform: translateX(0);
   }
   100% {
-    transform: translateX($size / 2);
+    transform: translateX(4px); // rem や % 単位を使うと IE で思うようにアニメーションしないので、px で指定
   }
 }
 
@@ -1375,15 +1378,15 @@ a.keyword {
 // }
 // 
 // .pager .pager-prev:before {
-//   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><polygon fill='%23b22222' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8' transform='matrix(-1 0 0 1 15.886 0)'/></svg>"); /* fill属性の指定、"%23" に続くカラーコードを変更してください */
+//   content: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpolygon fill='%23b22222' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8' transform='matrix(-1 0 0 1 15.886 0)'/%3E%3C/svg%3E"); /* fill属性の指定、"%23" に続くカラーコードを変更してください */
 // }
 // 
 // .pager .pager-next::after {
-//   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><polygon fill='%23b22222' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8'/></svg>"); /* fill属性の指定、"%23" に続くカラーコードを変更してください */
+//   content: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpolygon fill='%23b22222' fill-rule='evenodd' points='3 14.114 4.886 16 12.886 8 4.886 0 3 1.886 9.114 8'/%3E%3C/svg%3E"); /* fill属性の指定、"%23" に続くカラーコードを変更してください */
 // }
 // 
 // .hatena-module-search-box .search-module-input:focus + .search-module-button {
-//   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><path fill='%23b22222' d='M11.7489008,10.3346872 L15.9568544,14.5426409 L14.5426409,15.9568544 L10.3346872,11.7489008 C9.2597335,12.5355664 7.9341039,13 6.5,13 C2.91014913,13 0,10.0898509 0,6.5 C0,2.91014913 2.91014913,0 6.5,0 C10.0898509,0 13,2.91014913 13,6.5 C13,7.9341039 12.5355664,9.2597335 11.7489008,10.3346872 Z M6.5,11 C8.98528137,11 11,8.98528137 11,6.5 C11,4.01471863 8.98528137,2 6.5,2 C4.01471863,2 2,4.01471863 2,6.5 C2,8.98528137 4.01471863,11 6.5,11 Z'/></svg>"); /* fill属性の指定、"%23" に続くカラーコードを変更してください */
+//   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23b22222' d='M11.7489008,10.3346872 L15.9568544,14.5426409 L14.5426409,15.9568544 L10.3346872,11.7489008 C9.2597335,12.5355664 7.9341039,13 6.5,13 C2.91014913,13 0,10.0898509 0,6.5 C0,2.91014913 2.91014913,0 6.5,0 C10.0898509,0 13,2.91014913 13,6.5 C13,7.9341039 12.5355664,9.2597335 11.7489008,10.3346872 Z M6.5,11 C8.98528137,11 11,8.98528137 11,6.5 C11,4.01471863 8.98528137,2 6.5,2 C4.01471863,2 2,4.01471863 2,6.5 C2,8.98528137 4.01471863,11 6.5,11 Z'/%3E%3C/svg%3E"); /* fill属性の指定、"%23" に続くカラーコードを変更してください */
 // }
 // /* color/link-color */
 // a {
@@ -1455,7 +1458,7 @@ a.keyword {
 // }
 // 
 // .hatena-module-search-box .search-module-button {
-//   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 16 16'><path fill='%23696969' d='M11.7489008,10.3346872 L15.9568544,14.5426409 L14.5426409,15.9568544 L10.3346872,11.7489008 C9.2597335,12.5355664 7.9341039,13 6.5,13 C2.91014913,13 0,10.0898509 0,6.5 C0,2.91014913 2.91014913,0 6.5,0 C10.0898509,0 13,2.91014913 13,6.5 C13,7.9341039 12.5355664,9.2597335 11.7489008,10.3346872 Z M6.5,11 C8.98528137,11 11,8.98528137 11,6.5 C11,4.01471863 8.98528137,2 6.5,2 C4.01471863,2 2,4.01471863 2,6.5 C2,8.98528137 4.01471863,11 6.5,11 Z'/></svg>"); /* fill属性の指定、"%23" に続くカラーコードを変更してください */
+//   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23696969' d='M11.7489008,10.3346872 L15.9568544,14.5426409 L14.5426409,15.9568544 L10.3346872,11.7489008 C9.2597335,12.5355664 7.9341039,13 6.5,13 C2.91014913,13 0,10.0898509 0,6.5 C0,2.91014913 2.91014913,0 6.5,0 C10.0898509,0 13,2.91014913 13,6.5 C13,7.9341039 12.5355664,9.2597335 11.7489008,10.3346872 Z M6.5,11 C8.98528137,11 11,8.98528137 11,6.5 C11,4.01471863 8.98528137,2 6.5,2 C4.01471863,2 2,4.01471863 2,6.5 C2,8.98528137 4.01471863,11 6.5,11 Z'/%3E%3C/svg%3E"); /* fill属性の指定、"%23" に続くカラーコードを変更してください */
 // }
 
 // /* --- ヘッダータイトルを SVG ロゴに置き換え、背景を消して中央に配置 --- */
