@@ -142,10 +142,10 @@
 </div>
 
 <!-- jQuery を使って、シェア数を取得 -->
-<script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script>
 function getHatenaBookmarkCount(entryUrl, selcter) {
-  entryUrl = 'http://api.b.st-hatena.com/entry.count?url=' + encodeURIComponent(entryUrl)
+  entryUrl = 'https://b.hatena.ne.jp/entry.count?url=' + encodeURIComponent(entryUrl)
   $.ajax({
     url:entryUrl,
     dataType:'jsonp',
